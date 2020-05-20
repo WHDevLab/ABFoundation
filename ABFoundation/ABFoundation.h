@@ -9,6 +9,6 @@
 #ifndef ABFoundation_h
 #define ABFoundation_h
 
-#import "ABNet/ABNet.h"
+#import "ABNet.h"
 #import "NSObject+ABNet.h"
 #endif /* ABFoundation_h */
