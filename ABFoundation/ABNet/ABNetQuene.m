@@ -73,17 +73,17 @@
     }
 }
 
-- (void)ABNetWorkerBegin:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request task:(NSURLSessionTask *)task {
+- (void)netWorkerBegin:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request task:(NSURLSessionTask *)task {
     self.taskMap[request.identifier] = task;
     
 }
 
-- (void)ABNetWorkerFinish:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request responseObject:(NSDictionary *)responseObject {
+- (void)netWorkerFinish:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request responseObject:(NSDictionary *)responseObject {
     [self callBackSucess:request responseObject:responseObject];
 //    [self.stack removeObject:request];
 }
 
-- (void)ABNetWorkerFailure:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request err:(ABNetError *)err {
+- (void)netWorkerFailure:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request err:(ABNetError *)err {
     [self callBackFailure:request error:err];
 }
 
