@@ -7,159 +7,177 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F14C356C24750EAF0060D435 /* ABWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355524750EAF0060D435 /* ABWeakProxy.m */; };
-		F14C356D24750EAF0060D435 /* ABDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355624750EAF0060D435 /* ABDevice.m */; };
-		F14C356E24750EAF0060D435 /* ABDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355724750EAF0060D435 /* ABDevice.h */; };
-		F14C356F24750EAF0060D435 /* ABTime.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355824750EAF0060D435 /* ABTime.h */; };
-		F14C357024750EAF0060D435 /* ABNetWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355A24750EAF0060D435 /* ABNetWorker.m */; };
-		F14C357124750EAF0060D435 /* ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355B24750EAF0060D435 /* ABNet.m */; };
-		F14C357224750EAF0060D435 /* ABNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355C24750EAF0060D435 /* ABNetRequest.m */; };
-		F14C357324750EAF0060D435 /* NSObject+ABNet.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355D24750EAF0060D435 /* NSObject+ABNet.h */; };
-		F14C357424750EAF0060D435 /* ABNetHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355E24750EAF0060D435 /* ABNetHeader.h */; };
-		F14C357524750EAF0060D435 /* ABNetPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355F24750EAF0060D435 /* ABNetPlugin.h */; };
-		F14C357624750EAF0060D435 /* ABNetResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356024750EAF0060D435 /* ABNetResponse.h */; };
-		F14C357724750EAF0060D435 /* ABNetError.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356124750EAF0060D435 /* ABNetError.h */; };
-		F14C357824750EAF0060D435 /* ABNetQuene.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356224750EAF0060D435 /* ABNetQuene.h */; };
-		F14C357924750EAF0060D435 /* ABNet.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356324750EAF0060D435 /* ABNet.h */; };
-		F14C357A24750EAF0060D435 /* ABNetWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356424750EAF0060D435 /* ABNetWorker.h */; };
-		F14C357B24750EAF0060D435 /* NSObject+ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356524750EAF0060D435 /* NSObject+ABNet.m */; };
-		F14C357C24750EAF0060D435 /* ABNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356624750EAF0060D435 /* ABNetRequest.h */; };
-		F14C357D24750EAF0060D435 /* ABNetQuene.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356724750EAF0060D435 /* ABNetQuene.m */; };
-		F14C357E24750EAF0060D435 /* ABNetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356824750EAF0060D435 /* ABNetResponse.m */; };
-		F14C357F24750EAF0060D435 /* ABNetError.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356924750EAF0060D435 /* ABNetError.m */; };
-		F14C358024750EAF0060D435 /* ABTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356A24750EAF0060D435 /* ABTime.m */; };
-		F14C358124750EAF0060D435 /* ABWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356B24750EAF0060D435 /* ABWeakProxy.h */; };
-		F14C358324750EFB0060D435 /* ABFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C358224750EFB0060D435 /* ABFoundation.h */; };
+		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
+		F14C35942475185A0060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35932475185A0060D435 /* AppDelegate.m */; };
+		F14C359A2475185A0060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35992475185A0060D435 /* ViewController.m */; };
+		F14C359F2475185E0060D435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14C359E2475185E0060D435 /* Assets.xcassets */; };
+		F14C35A22475185E0060D435 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14C35A02475185E0060D435 /* LaunchScreen.storyboard */; };
+		F14C35A52475185E0060D435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35A42475185E0060D435 /* main.m */; };
+		F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35B024751CB60060D435 /* ABNetWorker.m */; };
+		F14C35C524751CB70060D435 /* ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35B124751CB60060D435 /* ABNet.m */; };
+		F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35B224751CB60060D435 /* ABNetRequest.m */; };
+		F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35BB24751CB70060D435 /* NSObject+ABNet.m */; };
+		F14C35C824751CB70060D435 /* ABNetQuene.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35BD24751CB70060D435 /* ABNetQuene.m */; };
+		F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35BE24751CB70060D435 /* ABNetResponse.m */; };
+		F14C35CA24751CB70060D435 /* ABNetError.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35BF24751CB70060D435 /* ABNetError.m */; };
+		F14C35CB24751CB70060D435 /* ABDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C024751CB70060D435 /* ABDevice.m */; };
+		F14C35CC24751CB70060D435 /* ABTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C224751CB70060D435 /* ABTime.m */; };
+		F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C324751CB70060D435 /* ABWeakProxy.m */; };
+		F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F14C354A24750BF00060D435 /* ABFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ABFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F14C354E24750BF00060D435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F14C355524750EAF0060D435 /* ABWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWeakProxy.m; sourceTree = "<group>"; };
-		F14C355624750EAF0060D435 /* ABDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDevice.m; sourceTree = "<group>"; };
-		F14C355724750EAF0060D435 /* ABDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDevice.h; sourceTree = "<group>"; };
-		F14C355824750EAF0060D435 /* ABTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTime.h; sourceTree = "<group>"; };
-		F14C355A24750EAF0060D435 /* ABNetWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetWorker.m; sourceTree = "<group>"; };
-		F14C355B24750EAF0060D435 /* ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNet.m; sourceTree = "<group>"; };
-		F14C355C24750EAF0060D435 /* ABNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetRequest.m; sourceTree = "<group>"; };
-		F14C355D24750EAF0060D435 /* NSObject+ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABNet.h"; sourceTree = "<group>"; };
-		F14C355E24750EAF0060D435 /* ABNetHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetHeader.h; sourceTree = "<group>"; };
-		F14C355F24750EAF0060D435 /* ABNetPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetPlugin.h; sourceTree = "<group>"; };
-		F14C356024750EAF0060D435 /* ABNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetResponse.h; sourceTree = "<group>"; };
-		F14C356124750EAF0060D435 /* ABNetError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetError.h; sourceTree = "<group>"; };
-		F14C356224750EAF0060D435 /* ABNetQuene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetQuene.h; sourceTree = "<group>"; };
-		F14C356324750EAF0060D435 /* ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNet.h; sourceTree = "<group>"; };
-		F14C356424750EAF0060D435 /* ABNetWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetWorker.h; sourceTree = "<group>"; };
-		F14C356524750EAF0060D435 /* NSObject+ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABNet.m"; sourceTree = "<group>"; };
-		F14C356624750EAF0060D435 /* ABNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetRequest.h; sourceTree = "<group>"; };
-		F14C356724750EAF0060D435 /* ABNetQuene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetQuene.m; sourceTree = "<group>"; };
-		F14C356824750EAF0060D435 /* ABNetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetResponse.m; sourceTree = "<group>"; };
-		F14C356924750EAF0060D435 /* ABNetError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetError.m; sourceTree = "<group>"; };
-		F14C356A24750EAF0060D435 /* ABTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTime.m; sourceTree = "<group>"; };
-		F14C356B24750EAF0060D435 /* ABWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWeakProxy.h; sourceTree = "<group>"; };
-		F14C358224750EFB0060D435 /* ABFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABFoundation.h; sourceTree = "<group>"; };
+		582B130658D1D0185E9FA1DE /* Pods-ABFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.release.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14C358F2475185A0060D435 /* ABFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14C35922475185A0060D435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F14C35932475185A0060D435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F14C35982475185A0060D435 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F14C35992475185A0060D435 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F14C359E2475185E0060D435 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F14C35A12475185E0060D435 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F14C35A32475185E0060D435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F14C35A42475185E0060D435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F14C35AC24751CB60060D435 /* ABDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDevice.h; sourceTree = "<group>"; };
+		F14C35AD24751CB60060D435 /* ABTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTime.h; sourceTree = "<group>"; };
+		F14C35AE24751CB60060D435 /* ABWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWeakProxy.h; sourceTree = "<group>"; };
+		F14C35B024751CB60060D435 /* ABNetWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetWorker.m; sourceTree = "<group>"; };
+		F14C35B124751CB60060D435 /* ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNet.m; sourceTree = "<group>"; };
+		F14C35B224751CB60060D435 /* ABNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetRequest.m; sourceTree = "<group>"; };
+		F14C35B324751CB60060D435 /* NSObject+ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABNet.h"; sourceTree = "<group>"; };
+		F14C35B524751CB70060D435 /* ABNetPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetPlugin.h; sourceTree = "<group>"; };
+		F14C35B624751CB70060D435 /* ABNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetResponse.h; sourceTree = "<group>"; };
+		F14C35B724751CB70060D435 /* ABNetError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetError.h; sourceTree = "<group>"; };
+		F14C35B824751CB70060D435 /* ABNetQuene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetQuene.h; sourceTree = "<group>"; };
+		F14C35B924751CB70060D435 /* ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNet.h; sourceTree = "<group>"; };
+		F14C35BA24751CB70060D435 /* ABNetWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetWorker.h; sourceTree = "<group>"; };
+		F14C35BB24751CB70060D435 /* NSObject+ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABNet.m"; sourceTree = "<group>"; };
+		F14C35BC24751CB70060D435 /* ABNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetRequest.h; sourceTree = "<group>"; };
+		F14C35BD24751CB70060D435 /* ABNetQuene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetQuene.m; sourceTree = "<group>"; };
+		F14C35BE24751CB70060D435 /* ABNetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetResponse.m; sourceTree = "<group>"; };
+		F14C35BF24751CB70060D435 /* ABNetError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetError.m; sourceTree = "<group>"; };
+		F14C35C024751CB70060D435 /* ABDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDevice.m; sourceTree = "<group>"; };
+		F14C35C124751CB70060D435 /* ABFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFoundation.h; sourceTree = "<group>"; };
+		F14C35C224751CB70060D435 /* ABTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTime.m; sourceTree = "<group>"; };
+		F14C35C324751CB70060D435 /* ABWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWeakProxy.m; sourceTree = "<group>"; };
+		F14C35CE24752D4A0060D435 /* ABNetConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetConfiguration.h; sourceTree = "<group>"; };
+		F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetConfiguration.m; sourceTree = "<group>"; };
+		FF922021528014F98DB98AC5 /* Pods-ABFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.debug.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F14C354724750BF00060D435 /* Frameworks */ = {
+		F14C358C2475185A0060D435 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F14C354024750BF00060D435 = {
+		7532471EED4D62E600BE849C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F14C354C24750BF00060D435 /* ABFoundation */,
-				F14C354B24750BF00060D435 /* Products */,
+				FF922021528014F98DB98AC5 /* Pods-ABFoundation.debug.xcconfig */,
+				582B130658D1D0185E9FA1DE /* Pods-ABFoundation.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC1DB699B6D81D9F19E74B48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F14C35862475185A0060D435 = {
+			isa = PBXGroup;
+			children = (
+				F14C35912475185A0060D435 /* ABFoundation */,
+				F14C35902475185A0060D435 /* Products */,
+				7532471EED4D62E600BE849C /* Pods */,
+				BC1DB699B6D81D9F19E74B48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		F14C354B24750BF00060D435 /* Products */ = {
+		F14C35902475185A0060D435 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F14C354A24750BF00060D435 /* ABFoundation.framework */,
+				F14C358F2475185A0060D435 /* ABFoundation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F14C354C24750BF00060D435 /* ABFoundation */ = {
+		F14C35912475185A0060D435 /* ABFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				F14C355724750EAF0060D435 /* ABDevice.h */,
-				F14C355624750EAF0060D435 /* ABDevice.m */,
-				F14C355924750EAF0060D435 /* ABNet */,
-				F14C355824750EAF0060D435 /* ABTime.h */,
-				F14C356A24750EAF0060D435 /* ABTime.m */,
-				F14C356B24750EAF0060D435 /* ABWeakProxy.h */,
-				F14C355524750EAF0060D435 /* ABWeakProxy.m */,
-				F14C354E24750BF00060D435 /* Info.plist */,
-				F14C358224750EFB0060D435 /* ABFoundation.h */,
+				F14C35AB24751CB60060D435 /* Core */,
+				F14C35922475185A0060D435 /* AppDelegate.h */,
+				F14C35932475185A0060D435 /* AppDelegate.m */,
+				F14C35982475185A0060D435 /* ViewController.h */,
+				F14C35992475185A0060D435 /* ViewController.m */,
+				F14C359E2475185E0060D435 /* Assets.xcassets */,
+				F14C35A02475185E0060D435 /* LaunchScreen.storyboard */,
+				F14C35A32475185E0060D435 /* Info.plist */,
+				F14C35A42475185E0060D435 /* main.m */,
 			);
 			path = ABFoundation;
 			sourceTree = "<group>";
 		};
-		F14C355924750EAF0060D435 /* ABNet */ = {
+		F14C35AB24751CB60060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F14C356324750EAF0060D435 /* ABNet.h */,
-				F14C355B24750EAF0060D435 /* ABNet.m */,
-				F14C356124750EAF0060D435 /* ABNetError.h */,
-				F14C356924750EAF0060D435 /* ABNetError.m */,
-				F14C355E24750EAF0060D435 /* ABNetHeader.h */,
-				F14C355F24750EAF0060D435 /* ABNetPlugin.h */,
-				F14C356224750EAF0060D435 /* ABNetQuene.h */,
-				F14C356724750EAF0060D435 /* ABNetQuene.m */,
-				F14C356624750EAF0060D435 /* ABNetRequest.h */,
-				F14C355C24750EAF0060D435 /* ABNetRequest.m */,
-				F14C356024750EAF0060D435 /* ABNetResponse.h */,
-				F14C356824750EAF0060D435 /* ABNetResponse.m */,
-				F14C356424750EAF0060D435 /* ABNetWorker.h */,
-				F14C355A24750EAF0060D435 /* ABNetWorker.m */,
-				F14C355D24750EAF0060D435 /* NSObject+ABNet.h */,
-				F14C356524750EAF0060D435 /* NSObject+ABNet.m */,
+				F14C35AC24751CB60060D435 /* ABDevice.h */,
+				F14C35C024751CB70060D435 /* ABDevice.m */,
+				F14C35C124751CB70060D435 /* ABFoundation.h */,
+				F14C35AF24751CB60060D435 /* ABNet */,
+				F14C35AD24751CB60060D435 /* ABTime.h */,
+				F14C35C224751CB70060D435 /* ABTime.m */,
+				F14C35AE24751CB60060D435 /* ABWeakProxy.h */,
+				F14C35C324751CB70060D435 /* ABWeakProxy.m */,
+			);
+			path = Core;
+			sourceTree = SOURCE_ROOT;
+		};
+		F14C35AF24751CB60060D435 /* ABNet */ = {
+			isa = PBXGroup;
+			children = (
+				F14C35B924751CB70060D435 /* ABNet.h */,
+				F14C35B124751CB60060D435 /* ABNet.m */,
+				F14C35B724751CB70060D435 /* ABNetError.h */,
+				F14C35BF24751CB70060D435 /* ABNetError.m */,
+				F14C35B524751CB70060D435 /* ABNetPlugin.h */,
+				F14C35B824751CB70060D435 /* ABNetQuene.h */,
+				F14C35BD24751CB70060D435 /* ABNetQuene.m */,
+				F14C35BC24751CB70060D435 /* ABNetRequest.h */,
+				F14C35B224751CB60060D435 /* ABNetRequest.m */,
+				F14C35B624751CB70060D435 /* ABNetResponse.h */,
+				F14C35BE24751CB70060D435 /* ABNetResponse.m */,
+				F14C35BA24751CB70060D435 /* ABNetWorker.h */,
+				F14C35B024751CB60060D435 /* ABNetWorker.m */,
+				F14C35B324751CB60060D435 /* NSObject+ABNet.h */,
+				F14C35BB24751CB70060D435 /* NSObject+ABNet.m */,
+				F14C35CE24752D4A0060D435 /* ABNetConfiguration.h */,
+				F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */,
 			);
 			path = ABNet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		F14C354524750BF00060D435 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F14C357524750EAF0060D435 /* ABNetPlugin.h in Headers */,
-				F14C356F24750EAF0060D435 /* ABTime.h in Headers */,
-				F14C357424750EAF0060D435 /* ABNetHeader.h in Headers */,
-				F14C357824750EAF0060D435 /* ABNetQuene.h in Headers */,
-				F14C356E24750EAF0060D435 /* ABDevice.h in Headers */,
-				F14C357624750EAF0060D435 /* ABNetResponse.h in Headers */,
-				F14C357C24750EAF0060D435 /* ABNetRequest.h in Headers */,
-				F14C357924750EAF0060D435 /* ABNet.h in Headers */,
-				F14C358124750EAF0060D435 /* ABWeakProxy.h in Headers */,
-				F14C357A24750EAF0060D435 /* ABNetWorker.h in Headers */,
-				F14C358324750EFB0060D435 /* ABFoundation.h in Headers */,
-				F14C357724750EAF0060D435 /* ABNetError.h in Headers */,
-				F14C357324750EAF0060D435 /* NSObject+ABNet.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		F14C354924750BF00060D435 /* ABFoundation */ = {
+		F14C358E2475185A0060D435 /* ABFoundation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F14C355224750BF00060D435 /* Build configuration list for PBXNativeTarget "ABFoundation" */;
+			buildConfigurationList = F14C35A82475185E0060D435 /* Build configuration list for PBXNativeTarget "ABFoundation" */;
 			buildPhases = (
-				F14C354524750BF00060D435 /* Headers */,
-				F14C354624750BF00060D435 /* Sources */,
-				F14C354724750BF00060D435 /* Frameworks */,
-				F14C354824750BF00060D435 /* Resources */,
+				17524B9323C283B3F3D80083 /* [CP] Check Pods Manifest.lock */,
+				F14C358B2475185A0060D435 /* Sources */,
+				F14C358C2475185A0060D435 /* Frameworks */,
+				F14C358D2475185A0060D435 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -167,24 +185,24 @@
 			);
 			name = ABFoundation;
 			productName = ABFoundation;
-			productReference = F14C354A24750BF00060D435 /* ABFoundation.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = F14C358F2475185A0060D435 /* ABFoundation.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F14C354124750BF00060D435 /* Project object */ = {
+		F14C35872475185A0060D435 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = abteam;
 				TargetAttributes = {
-					F14C354924750BF00060D435 = {
+					F14C358E2475185A0060D435 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
-			buildConfigurationList = F14C354424750BF00060D435 /* Build configuration list for PBXProject "ABFoundation" */;
+			buildConfigurationList = F14C358A2475185A0060D435 /* Build configuration list for PBXProject "ABFoundation" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -192,48 +210,90 @@
 				en,
 				Base,
 			);
-			mainGroup = F14C354024750BF00060D435;
-			productRefGroup = F14C354B24750BF00060D435 /* Products */;
+			mainGroup = F14C35862475185A0060D435;
+			productRefGroup = F14C35902475185A0060D435 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F14C354924750BF00060D435 /* ABFoundation */,
+				F14C358E2475185A0060D435 /* ABFoundation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F14C354824750BF00060D435 /* Resources */ = {
+		F14C358D2475185A0060D435 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14C35A22475185E0060D435 /* LaunchScreen.storyboard in Resources */,
+				F14C359F2475185E0060D435 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17524B9323C283B3F3D80083 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ABFoundation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		F14C354624750BF00060D435 /* Sources */ = {
+		F14C358B2475185A0060D435 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14C357124750EAF0060D435 /* ABNet.m in Sources */,
-				F14C356D24750EAF0060D435 /* ABDevice.m in Sources */,
-				F14C356C24750EAF0060D435 /* ABWeakProxy.m in Sources */,
-				F14C358024750EAF0060D435 /* ABTime.m in Sources */,
-				F14C357E24750EAF0060D435 /* ABNetResponse.m in Sources */,
-				F14C357024750EAF0060D435 /* ABNetWorker.m in Sources */,
-				F14C357F24750EAF0060D435 /* ABNetError.m in Sources */,
-				F14C357B24750EAF0060D435 /* NSObject+ABNet.m in Sources */,
-				F14C357224750EAF0060D435 /* ABNetRequest.m in Sources */,
-				F14C357D24750EAF0060D435 /* ABNetQuene.m in Sources */,
+				F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */,
+				F14C35CC24751CB70060D435 /* ABTime.m in Sources */,
+				F14C359A2475185A0060D435 /* ViewController.m in Sources */,
+				F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */,
+				F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */,
+				F14C35C524751CB70060D435 /* ABNet.m in Sources */,
+				F14C35CB24751CB70060D435 /* ABDevice.m in Sources */,
+				F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */,
+				F14C35CA24751CB70060D435 /* ABNetError.m in Sources */,
+				F14C35942475185A0060D435 /* AppDelegate.m in Sources */,
+				F14C35A52475185E0060D435 /* main.m in Sources */,
+				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,
+				F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */,
+				F14C35C824751CB70060D435 /* ABNetQuene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		F14C35A02475185E0060D435 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F14C35A12475185E0060D435 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		F14C355024750BF00060D435 /* Debug */ = {
+		F14C35A62475185E0060D435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,7 +326,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -289,12 +348,10 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		F14C355124750BF00060D435 /* Release */ = {
+		F14C35A72475185E0060D435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -327,7 +384,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -344,51 +400,39 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		F14C355324750BF00060D435 /* Debug */ = {
+		F14C35A92475185E0060D435 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF922021528014F98DB98AC5 /* Pods-ABFoundation.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ABFoundation/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABFoundation;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F14C355424750BF00060D435 /* Release */ = {
+		F14C35AA2475185E0060D435 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 582B130658D1D0185E9FA1DE /* Pods-ABFoundation.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ABFoundation/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abteam.ABFoundation;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -396,25 +440,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F14C354424750BF00060D435 /* Build configuration list for PBXProject "ABFoundation" */ = {
+		F14C358A2475185A0060D435 /* Build configuration list for PBXProject "ABFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F14C355024750BF00060D435 /* Debug */,
-				F14C355124750BF00060D435 /* Release */,
+				F14C35A62475185E0060D435 /* Debug */,
+				F14C35A72475185E0060D435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F14C355224750BF00060D435 /* Build configuration list for PBXNativeTarget "ABFoundation" */ = {
+		F14C35A82475185E0060D435 /* Build configuration list for PBXNativeTarget "ABFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F14C355324750BF00060D435 /* Debug */,
-				F14C355424750BF00060D435 /* Release */,
+				F14C35A92475185E0060D435 /* Debug */,
+				F14C35AA2475185E0060D435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F14C354124750BF00060D435 /* Project object */;
+	rootObject = F14C35872475185A0060D435 /* Project object */;
 }
