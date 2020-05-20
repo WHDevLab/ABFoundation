@@ -7,13 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F14C354F24750BF00060D435 /* ABFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C354D24750BF00060D435 /* ABFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F14C356C24750EAF0060D435 /* ABWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355524750EAF0060D435 /* ABWeakProxy.m */; };
+		F14C356D24750EAF0060D435 /* ABDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355624750EAF0060D435 /* ABDevice.m */; };
+		F14C356E24750EAF0060D435 /* ABDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355724750EAF0060D435 /* ABDevice.h */; };
+		F14C356F24750EAF0060D435 /* ABTime.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355824750EAF0060D435 /* ABTime.h */; };
+		F14C357024750EAF0060D435 /* ABNetWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355A24750EAF0060D435 /* ABNetWorker.m */; };
+		F14C357124750EAF0060D435 /* ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355B24750EAF0060D435 /* ABNet.m */; };
+		F14C357224750EAF0060D435 /* ABNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C355C24750EAF0060D435 /* ABNetRequest.m */; };
+		F14C357324750EAF0060D435 /* NSObject+ABNet.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355D24750EAF0060D435 /* NSObject+ABNet.h */; };
+		F14C357424750EAF0060D435 /* ABNetHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355E24750EAF0060D435 /* ABNetHeader.h */; };
+		F14C357524750EAF0060D435 /* ABNetPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C355F24750EAF0060D435 /* ABNetPlugin.h */; };
+		F14C357624750EAF0060D435 /* ABNetResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356024750EAF0060D435 /* ABNetResponse.h */; };
+		F14C357724750EAF0060D435 /* ABNetError.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356124750EAF0060D435 /* ABNetError.h */; };
+		F14C357824750EAF0060D435 /* ABNetQuene.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356224750EAF0060D435 /* ABNetQuene.h */; };
+		F14C357924750EAF0060D435 /* ABNet.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356324750EAF0060D435 /* ABNet.h */; };
+		F14C357A24750EAF0060D435 /* ABNetWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356424750EAF0060D435 /* ABNetWorker.h */; };
+		F14C357B24750EAF0060D435 /* NSObject+ABNet.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356524750EAF0060D435 /* NSObject+ABNet.m */; };
+		F14C357C24750EAF0060D435 /* ABNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356624750EAF0060D435 /* ABNetRequest.h */; };
+		F14C357D24750EAF0060D435 /* ABNetQuene.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356724750EAF0060D435 /* ABNetQuene.m */; };
+		F14C357E24750EAF0060D435 /* ABNetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356824750EAF0060D435 /* ABNetResponse.m */; };
+		F14C357F24750EAF0060D435 /* ABNetError.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356924750EAF0060D435 /* ABNetError.m */; };
+		F14C358024750EAF0060D435 /* ABTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C356A24750EAF0060D435 /* ABTime.m */; };
+		F14C358124750EAF0060D435 /* ABWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C356B24750EAF0060D435 /* ABWeakProxy.h */; };
+		F14C358324750EFB0060D435 /* ABFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = F14C358224750EFB0060D435 /* ABFoundation.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F14C354A24750BF00060D435 /* ABFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ABFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F14C354D24750BF00060D435 /* ABFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABFoundation.h; sourceTree = "<group>"; };
 		F14C354E24750BF00060D435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F14C355524750EAF0060D435 /* ABWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWeakProxy.m; sourceTree = "<group>"; };
+		F14C355624750EAF0060D435 /* ABDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDevice.m; sourceTree = "<group>"; };
+		F14C355724750EAF0060D435 /* ABDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDevice.h; sourceTree = "<group>"; };
+		F14C355824750EAF0060D435 /* ABTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTime.h; sourceTree = "<group>"; };
+		F14C355A24750EAF0060D435 /* ABNetWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetWorker.m; sourceTree = "<group>"; };
+		F14C355B24750EAF0060D435 /* ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNet.m; sourceTree = "<group>"; };
+		F14C355C24750EAF0060D435 /* ABNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetRequest.m; sourceTree = "<group>"; };
+		F14C355D24750EAF0060D435 /* NSObject+ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABNet.h"; sourceTree = "<group>"; };
+		F14C355E24750EAF0060D435 /* ABNetHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetHeader.h; sourceTree = "<group>"; };
+		F14C355F24750EAF0060D435 /* ABNetPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetPlugin.h; sourceTree = "<group>"; };
+		F14C356024750EAF0060D435 /* ABNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetResponse.h; sourceTree = "<group>"; };
+		F14C356124750EAF0060D435 /* ABNetError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetError.h; sourceTree = "<group>"; };
+		F14C356224750EAF0060D435 /* ABNetQuene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetQuene.h; sourceTree = "<group>"; };
+		F14C356324750EAF0060D435 /* ABNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNet.h; sourceTree = "<group>"; };
+		F14C356424750EAF0060D435 /* ABNetWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetWorker.h; sourceTree = "<group>"; };
+		F14C356524750EAF0060D435 /* NSObject+ABNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABNet.m"; sourceTree = "<group>"; };
+		F14C356624750EAF0060D435 /* ABNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNetRequest.h; sourceTree = "<group>"; };
+		F14C356724750EAF0060D435 /* ABNetQuene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetQuene.m; sourceTree = "<group>"; };
+		F14C356824750EAF0060D435 /* ABNetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetResponse.m; sourceTree = "<group>"; };
+		F14C356924750EAF0060D435 /* ABNetError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNetError.m; sourceTree = "<group>"; };
+		F14C356A24750EAF0060D435 /* ABTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTime.m; sourceTree = "<group>"; };
+		F14C356B24750EAF0060D435 /* ABWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWeakProxy.h; sourceTree = "<group>"; };
+		F14C358224750EFB0060D435 /* ABFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABFoundation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +90,40 @@
 		F14C354C24750BF00060D435 /* ABFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				F14C354D24750BF00060D435 /* ABFoundation.h */,
+				F14C355724750EAF0060D435 /* ABDevice.h */,
+				F14C355624750EAF0060D435 /* ABDevice.m */,
+				F14C355924750EAF0060D435 /* ABNet */,
+				F14C355824750EAF0060D435 /* ABTime.h */,
+				F14C356A24750EAF0060D435 /* ABTime.m */,
+				F14C356B24750EAF0060D435 /* ABWeakProxy.h */,
+				F14C355524750EAF0060D435 /* ABWeakProxy.m */,
 				F14C354E24750BF00060D435 /* Info.plist */,
+				F14C358224750EFB0060D435 /* ABFoundation.h */,
 			);
 			path = ABFoundation;
+			sourceTree = "<group>";
+		};
+		F14C355924750EAF0060D435 /* ABNet */ = {
+			isa = PBXGroup;
+			children = (
+				F14C356324750EAF0060D435 /* ABNet.h */,
+				F14C355B24750EAF0060D435 /* ABNet.m */,
+				F14C356124750EAF0060D435 /* ABNetError.h */,
+				F14C356924750EAF0060D435 /* ABNetError.m */,
+				F14C355E24750EAF0060D435 /* ABNetHeader.h */,
+				F14C355F24750EAF0060D435 /* ABNetPlugin.h */,
+				F14C356224750EAF0060D435 /* ABNetQuene.h */,
+				F14C356724750EAF0060D435 /* ABNetQuene.m */,
+				F14C356624750EAF0060D435 /* ABNetRequest.h */,
+				F14C355C24750EAF0060D435 /* ABNetRequest.m */,
+				F14C356024750EAF0060D435 /* ABNetResponse.h */,
+				F14C356824750EAF0060D435 /* ABNetResponse.m */,
+				F14C356424750EAF0060D435 /* ABNetWorker.h */,
+				F14C355A24750EAF0060D435 /* ABNetWorker.m */,
+				F14C355D24750EAF0060D435 /* NSObject+ABNet.h */,
+				F14C356524750EAF0060D435 /* NSObject+ABNet.m */,
+			);
+			path = ABNet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +133,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14C354F24750BF00060D435 /* ABFoundation.h in Headers */,
+				F14C357524750EAF0060D435 /* ABNetPlugin.h in Headers */,
+				F14C356F24750EAF0060D435 /* ABTime.h in Headers */,
+				F14C357424750EAF0060D435 /* ABNetHeader.h in Headers */,
+				F14C357824750EAF0060D435 /* ABNetQuene.h in Headers */,
+				F14C356E24750EAF0060D435 /* ABDevice.h in Headers */,
+				F14C357624750EAF0060D435 /* ABNetResponse.h in Headers */,
+				F14C357C24750EAF0060D435 /* ABNetRequest.h in Headers */,
+				F14C357924750EAF0060D435 /* ABNet.h in Headers */,
+				F14C358124750EAF0060D435 /* ABWeakProxy.h in Headers */,
+				F14C357A24750EAF0060D435 /* ABNetWorker.h in Headers */,
+				F14C358324750EFB0060D435 /* ABFoundation.h in Headers */,
+				F14C357724750EAF0060D435 /* ABNetError.h in Headers */,
+				F14C357324750EAF0060D435 /* NSObject+ABNet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +217,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14C357124750EAF0060D435 /* ABNet.m in Sources */,
+				F14C356D24750EAF0060D435 /* ABDevice.m in Sources */,
+				F14C356C24750EAF0060D435 /* ABWeakProxy.m in Sources */,
+				F14C358024750EAF0060D435 /* ABTime.m in Sources */,
+				F14C357E24750EAF0060D435 /* ABNetResponse.m in Sources */,
+				F14C357024750EAF0060D435 /* ABNetWorker.m in Sources */,
+				F14C357F24750EAF0060D435 /* ABNetError.m in Sources */,
+				F14C357B24750EAF0060D435 /* NSObject+ABNet.m in Sources */,
+				F14C357224750EAF0060D435 /* ABNetRequest.m in Sources */,
+				F14C357D24750EAF0060D435 /* ABNetQuene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
