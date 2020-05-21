@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isFree;
 - (void)put:(ABNetRequest *)request;
 - (void)doRequest:(ABNetRequest *)request;
-- (void)finish:(NSDictionary *)responseObject;
 @end
 
 NS_ASSUME_NONNULL_END

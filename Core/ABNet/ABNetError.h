@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger code;
 @property (nonatomic, strong) NSString *message;
 
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *des;
 
 - (ABNetError *)initWithError:(NSError *)error;
 - (ABNetError *)initWithDic:(NSDictionary *)dic;

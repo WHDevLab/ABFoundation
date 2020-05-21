@@ -31,13 +31,20 @@
         self.taskMap = [[NSMutableDictionary alloc] init];
         self.stack = [[NSMutableArray alloc] init];
         self.httpMaximumConnectionsPerHost = 4;
+    }
+    return self;
+}
+
+- (void)setHttpMaximumConnectionsPerHost:(NSInteger)httpMaximumConnectionsPerHost {
+    _httpMaximumConnectionsPerHost = httpMaximumConnectionsPerHost;
+    @synchronized (self.ABNetWorkers) {
+        [self.ABNetWorkers removeAllObjects];
         for (int i=0; i<self.httpMaximumConnectionsPerHost; i++) {
             ABNetWorker *worker = [[ABNetWorker alloc] init];
             worker.delegate = self;
             [self.ABNetWorkers addObject:worker];
         }
     }
-    return self;
 }
 
 - (void)put:(ABNetRequest *)request {

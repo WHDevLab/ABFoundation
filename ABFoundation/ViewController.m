@@ -33,6 +33,6 @@
 }
 
 - (void)onNetRequestFailure:(ABNetRequest *)req err:(ABNetError *)err {
-    NSLog(@"%@", err.description);
+    NSLog(@"%@", err.des);
 }
 @end

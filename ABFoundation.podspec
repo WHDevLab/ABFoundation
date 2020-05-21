@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
 	s.requires_arc     = true
 	s.platform         = :ios, '10.0'
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
-	s.source_files     = 'ABFoundation/*.{h,m}'
+	s.source_files     = 'Core/*.{h,m}'
 	s.dependency "AFNetworking"
 	s.subspec 'ABNet' do |ss|
-		ss.source_files = 'ABFoundation/ABNet/*.{h,m}'
+		ss.source_files = 'Core/ABNet/*.{h,m}'
 	end
 end
