@@ -34,3 +34,4 @@
     return [self.weakTarget respondsToSelector:aSelector];
 }
 @end
+

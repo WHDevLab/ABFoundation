@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
+		F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */ = {isa = PBXBuildFile; fileRef = F136DD1B24791F2200412394 /* ABMQSubscibe.m */; };
 		F14C35942475185A0060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35932475185A0060D435 /* AppDelegate.m */; };
 		F14C359A2475185A0060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35992475185A0060D435 /* ViewController.m */; };
 		F14C359F2475185E0060D435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14C359E2475185E0060D435 /* Assets.xcassets */; };
@@ -24,11 +25,15 @@
 		F14C35CC24751CB70060D435 /* ABTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C224751CB70060D435 /* ABTime.m */; };
 		F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C324751CB70060D435 /* ABWeakProxy.m */; };
 		F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */; };
+		F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F196667E247B9B57008590F8 /* ABWeakObject.m */; };
+		F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCED12478C1E8005B94D4 /* ABMQ.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		582B130658D1D0185E9FA1DE /* Pods-ABFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.release.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F136DD1A24791F2200412394 /* ABMQSubscibe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQSubscibe.h; sourceTree = "<group>"; };
+		F136DD1B24791F2200412394 /* ABMQSubscibe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQSubscibe.m; sourceTree = "<group>"; };
 		F14C358F2475185A0060D435 /* ABFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14C35922475185A0060D435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F14C35932475185A0060D435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +67,10 @@
 		F14C35C324751CB70060D435 /* ABWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWeakProxy.m; sourceTree = "<group>"; };
 		F14C35CE24752D4A0060D435 /* ABNetConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetConfiguration.h; sourceTree = "<group>"; };
 		F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetConfiguration.m; sourceTree = "<group>"; };
+		F196667D247B9B57008590F8 /* ABWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWeakObject.h; sourceTree = "<group>"; };
+		F196667E247B9B57008590F8 /* ABWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWeakObject.m; sourceTree = "<group>"; };
+		F1BCCED02478C1E8005B94D4 /* ABMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQ.h; sourceTree = "<group>"; };
+		F1BCCED12478C1E8005B94D4 /* ABMQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQ.m; sourceTree = "<group>"; };
 		FF922021528014F98DB98AC5 /* Pods-ABFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.debug.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +101,17 @@
 				AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F136DD192479150200412394 /* ABMQ */ = {
+			isa = PBXGroup;
+			children = (
+				F1BCCED02478C1E8005B94D4 /* ABMQ.h */,
+				F1BCCED12478C1E8005B94D4 /* ABMQ.m */,
+				F136DD1A24791F2200412394 /* ABMQSubscibe.h */,
+				F136DD1B24791F2200412394 /* ABMQSubscibe.m */,
+			);
+			path = ABMQ;
 			sourceTree = "<group>";
 		};
 		F14C35862475185A0060D435 = {
@@ -131,6 +151,7 @@
 		F14C35AB24751CB60060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F136DD192479150200412394 /* ABMQ */,
 				F14C35AC24751CB60060D435 /* ABDevice.h */,
 				F14C35C024751CB70060D435 /* ABDevice.m */,
 				F14C35C124751CB70060D435 /* ABFoundation.h */,
@@ -139,6 +160,8 @@
 				F14C35C224751CB70060D435 /* ABTime.m */,
 				F14C35AE24751CB60060D435 /* ABWeakProxy.h */,
 				F14C35C324751CB70060D435 /* ABWeakProxy.m */,
+				F196667D247B9B57008590F8 /* ABWeakObject.h */,
+				F196667E247B9B57008590F8 /* ABWeakObject.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -265,6 +288,7 @@
 				F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */,
 				F14C35CC24751CB70060D435 /* ABTime.m in Sources */,
 				F14C359A2475185A0060D435 /* ViewController.m in Sources */,
+				F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */,
 				F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */,
 				F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */,
 				F14C35C524751CB70060D435 /* ABNet.m in Sources */,
@@ -272,6 +296,8 @@
 				F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */,
 				F14C35CA24751CB70060D435 /* ABNetError.m in Sources */,
 				F14C35942475185A0060D435 /* AppDelegate.m in Sources */,
+				F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */,
+				F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */,
 				F14C35A52475185E0060D435 /* main.m in Sources */,
 				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,
 				F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */,
