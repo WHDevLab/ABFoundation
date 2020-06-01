@@ -15,6 +15,7 @@
     if (self) {
         self.method = @"get";
         self.timestamp = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+        self.status = ABNetRequestStatusNormal;
     }
     return self;
 }

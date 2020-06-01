@@ -12,34 +12,64 @@
 @property (nonatomic, strong) NSMutableArray *subscribeObjs;
 @end
 @implementation ABMQ
-- (void)subscribe:(id<ABMQSubscribeProtocol>)obj channel:(NSString *)channel autoAck:(BOOL)autoAck {
+
++ (ABMQ *)shared {
+    static ABMQ *instance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.subscribeObjs = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+
+- (void)subscribe:(id<IABMQSubscribe>)obj channel:(NSString *)channel autoAck:(BOOL)autoAck {
     [self subscribe:obj channels:@[channel] autoAck:autoAck];
 }
 
-- (void)subscribe:(id<ABMQSubscribeProtocol>)obj channels:(NSArray<NSString *> *)channels autoAck:(BOOL)autoAck {
+- (void)subscribe:(id<IABMQSubscribe>)obj channels:(NSArray<NSString *> *)channels autoAck:(BOOL)autoAck {
     ABMQSubscibe *subscribe = [[ABMQSubscibe alloc] initWithTarget:obj];
+    subscribe.channels = [[NSMutableArray alloc] initWithArray:channels];
     [self.subscribeObjs addObject:subscribe];
 }
 
-- (void)unsubscribe:(id<ABMQSubscribeProtocol>)obj channel:(NSString *)channel {
+- (void)unsubscribe:(id<IABMQSubscribe>)obj channel:(NSString *)channel {
     [self unsubscribe:obj channels:@[channel]];
 }
 
-- (void)unsubscribe:(id<ABMQSubscribeProtocol>)obj channels:(NSArray<NSString *> *)channels {
-    
+- (void)unsubscribe:(id<IABMQSubscribe>)obj channels:(NSArray<NSString *> *)channels {
+    @synchronized (self.subscribeObjs) {
+        [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *subscibe, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (subscibe.obj == obj) {
+                NSMutableSet *set1 = [NSMutableSet setWithArray:subscibe.channels];
+                NSMutableSet *set2 = [NSMutableSet setWithArray:channels];
+                [set1 minusSet:set2];
+                subscibe.channels = [[NSMutableArray alloc] initWithArray:[set1 allObjects]];
+            }
+        }];
+    }
 }
 
-- (void)unsubscribe:(id<ABMQSubscribeProtocol>)obj {
+- (void)unsubscribe:(id<IABMQSubscribe>)obj {
     @synchronized (self.subscribeObjs) {
         NSMutableArray *subscribeObjs = [[NSMutableArray alloc] init];
-        [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.obj != obj) {
-                [subscribeObjs addObject:obj];
+        [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *subscibe, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (subscibe.obj != obj) {
+                [subscribeObjs addObject:subscibe];
             }
         }];
         self.subscribeObjs = subscribeObjs;
     }
-
 }
 
 - (void)publish:(id)message channel:(NSString *)channel {
@@ -49,18 +79,29 @@
                 [subscribe append:message];
             }
         }
+        
+        [self messageDistribute];
     }
 }
 
-- (void)messageDistribute:(NSString *)channel {
+- (void)messageDistribute {
     for (ABMQSubscibe *subscribe in self.subscribeObjs) {
-        if ([subscribe.channels containsObject:channel]) {
-            id message = [subscribe next];
-            if (message) {
-                [(id<ABMQSubscribeProtocol>)subscribe.obj onReceiveMessageFromMQ:message];
-            }
+        id message = [subscribe next];
+        if (message) {
+            [(id<IABMQSubscribe>)subscribe.obj onReceiveMessageFromMQ:message];
         }
     }
+}
+
+
+- (void)ack:(id<IABMQSubscribe>)obj {
+    [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *subscribe, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (subscribe.obj == obj) {
+            [subscribe pop];
+        }
+    }];
+    
+    [self messageDistribute];
 }
 
 @end

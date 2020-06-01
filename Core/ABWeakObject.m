@@ -10,7 +10,10 @@
 
 @implementation ABWeakObject
 - (instancetype)initWithTarget:(id)target {
-    self.obj = target;
+    self = [super init];
+    if (self) {
+       self.obj = target;
+    }
     return self;
 }
 @end

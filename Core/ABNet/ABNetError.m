@@ -28,7 +28,7 @@
     return self;
 }
 
-- (NSString *)description
+- (NSString *)des
 {
     return [NSString stringWithFormat:@"code:%li;reason:%@", (long)self.code,self.message];
 }

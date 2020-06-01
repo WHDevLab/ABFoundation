@@ -59,6 +59,15 @@
 }
 
 - (void)consumQuene {
+    
+    NSMutableArray *tmpStack = [[NSMutableArray alloc] init];
+    for (ABNetRequest *req in self.stack) {
+        if (req.status == ABNetRequestStatusNormal) {
+            [tmpStack addObject:req];
+        }
+    }
+    self.stack = tmpStack;
+    
     for (ABNetWorker *worker in self.ABNetWorkers) {
         if (worker.isFree) {
             for (ABNetRequest *req in self.stack) {
@@ -87,7 +96,7 @@
 
 - (void)netWorkerFinish:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request responseObject:(NSDictionary *)responseObject {
     [self callBackSucess:request responseObject:responseObject];
-    [self.stack removeObject:request];
+    request.status = ABNetRequestStatusTombstone;
 }
 
 - (void)netWorkerFailure:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request err:(ABNetError *)err {

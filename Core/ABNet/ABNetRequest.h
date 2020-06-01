@@ -23,6 +23,12 @@ typedef enum : NSUInteger {
     ABNetRequestCachePolicyCacheDataAndLoad
 } ABNetRequestCachePolicy;
 
+
+typedef enum : NSUInteger {
+    ABNetRequestStatusNormal,
+    ABNetRequestStatusTombstone
+}ABNetRequestStatus;
+
 @interface ABNetRequest : NSObject
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) NSString *method;
@@ -37,6 +43,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) id<INetData> target;
 
 @property (nonatomic, strong) NSString *identifier;
+@property (nonatomic) ABNetRequestStatus status;
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;

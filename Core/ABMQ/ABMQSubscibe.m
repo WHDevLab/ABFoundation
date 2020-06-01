@@ -9,12 +9,13 @@
 #import "ABMQSubscibe.h"
 
 @implementation ABMQSubscibe
-- (instancetype)init
+- (instancetype)initWithTarget:(id)target
 {
-    self = [super init];
+    self = [super initWithTarget:target];
     if (self) {
         self.quene = [[NSMutableArray alloc] init];
         self.channels = [[NSMutableArray alloc] init];
+        self.isFree = true;
     }
     return self;
 }
@@ -25,6 +26,11 @@
     }
     self.isFree = false;
     return self.quene.lastObject;
+}
+
+- (void)pop {
+    self.isFree = true;
+    [self.quene removeLastObject];
 }
 
 - (void)free:(BOOL)must {

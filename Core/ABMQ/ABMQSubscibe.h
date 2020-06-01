@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL autoAck;
 @property (nonatomic, strong) NSMutableArray *channels;
 - (id)next;
+- (void)pop;
 - (void)free:(BOOL)must;
 - (void)append:(id)message;
 @end
