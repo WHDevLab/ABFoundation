@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "ABFoundation.h"
+#import "ABWebSocket.h"
 @interface ViewController ()<INetData, IABMQSubscribe>
-
+@property (nonatomic, strong) ABWebSocket *socket;
 @end
 
 @implementation ViewController
@@ -22,6 +23,7 @@
     
     [self testABNet];
     [self testABMQ];
+    [self testABWebSocket];
 }
 
 
@@ -45,12 +47,12 @@
 }
 
 
-#pragma mark --------
+#pragma mark -------- test mq --------
 
 - (void)testABMQ {
     [[ABMQ shared] subscribe:self channel:@"test" autoAck:false];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[ABMQ shared] publish:@"nihao" channel:@"test"];
     });
 }
@@ -59,4 +61,12 @@
     NSLog(@"%@", message);
     [[ABMQ shared] ack:self];
 }
+
+#pragma mark ------ test socket ------
+
+- (void)testABWebSocket {
+    self.socket = [[ABWebSocket alloc] init];
+    [self.socket start:@"ws://121.40.165.18:8800"];
+}
+
 @end
