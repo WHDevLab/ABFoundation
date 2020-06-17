@@ -10,6 +10,7 @@
 		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
 		F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */ = {isa = PBXBuildFile; fileRef = F136DD1B24791F2200412394 /* ABMQSubscibe.m */; };
 		F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F142506B24974760003E83D8 /* ABWebSocketConfiguration.m */; };
+		F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F14250742499EF5F003E83D8 /* ABFileManager.m */; };
 		F14C35942475185A0060D435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35932475185A0060D435 /* AppDelegate.m */; };
 		F14C359A2475185A0060D435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35992475185A0060D435 /* ViewController.m */; };
 		F14C359F2475185E0060D435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14C359E2475185E0060D435 /* Assets.xcassets */; };
@@ -38,6 +39,8 @@
 		F136DD1B24791F2200412394 /* ABMQSubscibe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQSubscibe.m; sourceTree = "<group>"; };
 		F142506A24974760003E83D8 /* ABWebSocketConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocketConfiguration.h; sourceTree = "<group>"; };
 		F142506B24974760003E83D8 /* ABWebSocketConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWebSocketConfiguration.m; sourceTree = "<group>"; };
+		F14250732499EF5F003E83D8 /* ABFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABFileManager.h; sourceTree = "<group>"; };
+		F14250742499EF5F003E83D8 /* ABFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABFileManager.m; sourceTree = "<group>"; };
 		F14C358F2475185A0060D435 /* ABFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14C35922475185A0060D435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F14C35932475185A0060D435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				F14C35C324751CB70060D435 /* ABWeakProxy.m */,
 				F196667D247B9B57008590F8 /* ABWeakObject.h */,
 				F196667E247B9B57008590F8 /* ABWeakObject.m */,
+				F14250732499EF5F003E83D8 /* ABFileManager.h */,
+				F14250742499EF5F003E83D8 /* ABFileManager.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -315,6 +320,7 @@
 				F14C35CB24751CB70060D435 /* ABDevice.m in Sources */,
 				F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */,
 				F14C35CA24751CB70060D435 /* ABNetError.m in Sources */,
+				F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */,
 				F14C35942475185A0060D435 /* AppDelegate.m in Sources */,
 				F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */,
 				F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */,
