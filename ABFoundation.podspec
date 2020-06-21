@@ -18,4 +18,7 @@ Pod::Spec.new do |s|
 	s.subspec 'ABNet' do |ss|
 		ss.source_files = 'Core/ABNet/*.{h,m}'
 	end
+	s.subspec 'ABMQ' do |ss|
+		ss.source_files = 'Core/ABMQ/*.{h,m}'
+	end
 end
