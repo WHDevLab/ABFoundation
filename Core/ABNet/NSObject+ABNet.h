@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (ABNet)
-- (void)fetchUri:(NSString *)uri params:(NSDictionary *)params;
-- (void)fetchPostUri:(NSString *)uri params:(NSDictionary *)params;
-- (void)fetchMethod:(NSString *)method uri:(NSString *)uri params:(NSDictionary *)params isCancelWhenDealloc:(BOOL)isCancelWhenDealloc cachePolicy:(ABNetRequestCachePolicy)cachePolicy cacheKey:(NSString *)cacheKey;
+- (void)fetchUri:(NSString *)uri host:(NSString *)host params:(nullable NSDictionary *)params;
+- (void)fetchUri:(NSString *)uri params:(nullable NSDictionary *)params;
+- (void)fetchPostUri:(NSString *)uri params:(nullable NSDictionary *)params;
+- (void)fetchMethod:(NSString *)method host:(nullable NSString *)host uri:(NSString *)uri params:(nullable NSDictionary *)params isCancelWhenDealloc:(BOOL)isCancelWhenDealloc cachePolicy:(ABNetRequestCachePolicy)cachePolicy cacheKey:(NSString *)cacheKey;
 @end
 
 NS_ASSUME_NONNULL_END

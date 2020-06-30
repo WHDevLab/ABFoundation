@@ -91,14 +91,21 @@
 
 - (void)timerFrequency {
     NSDictionary *dic = @{@"cmd":@"ping"};
-    
-    [self.socket sendPing:[NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil]];
+    id mm = dic;
+    for (id<ABWebSocketPluginType> pl in self.plugins) {
+        mm = [pl processReceiveMessage:dic];
+    }
+    [self.socket sendPing:mm];
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     NSLog(@"连接成功.....");
     //心跳ping开启
     [self startHeart];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidConnected:)]) {
+        [self.delegate webSocketDidConnected:self];
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
@@ -131,7 +138,7 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSLog(@"连接关闭:%li",(long)code);
-    NSLog(@"连接关闭:%li",(long)reason);
+    NSLog(@"连接关闭:%@", reason);
     
     //关闭心跳ping
     [self stopHeart];

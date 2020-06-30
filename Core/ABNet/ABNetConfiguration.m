@@ -14,11 +14,44 @@
     if (self) {
         self.codeKey = @"code";
         self.msgKey = @"msg";
+        self.dataKey = @"data";
+        self.headers = @{};
+        self.successCode = 200;
+        self.contentType = @"application/json";
         
         self.isDebugLog = true;
     }
     return self;
 }
+
+- (NSString *)host:(NSString *)uri {
+    return self.host;
+}
+
+- (NSDictionary *)headers:(NSString *)uri {
+    return self.headers;
+}
+
+- (NSInteger)successCode:(ABNetRequest *)request {
+    return self.successCode;
+}
+
+- (NSString *)dataKey:(ABNetRequest *)request {
+    return self.dataKey;
+}
+
+- (NSString *)msgKey:(ABNetRequest *)request {
+    return self.msgKey;
+}
+
+- (NSString *)contentType:(NSString *)request {
+    return self.contentType;
+}
+
+- (NSString *)codeKey:(ABNetRequest *)request {
+    return self.codeKey;
+}
+
 @end
 
 @implementation ABNetConfiguration

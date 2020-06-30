@@ -16,4 +16,6 @@
 #import "ABTime.h"
 #import "ABWeakProxy.h"
 #import "ABFileManager.h"
+#import "ABNumber.h"
+#import "ABWebSocket.h"
 #endif /* ABFoundation_h */

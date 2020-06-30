@@ -67,8 +67,12 @@
 }
 
 - (void)_realRequest:(ABNetRequest *)request {
-    request.realParams = request.params;
-    request.realUri = request.uri;
+    if (request.realParams == nil) {
+        request.realParams = request.params;
+    }
+    if (request.realUri == nil) {
+        request.realUri = request.uri;
+    }
     [self.netQuene put:request];
 }
 
@@ -84,6 +88,7 @@
 }
 
 - (void)onNetRequestFailure:(ABNetRequest *)req err:(ABNetError *)err {
+    NSLog(@"%@", [err des]);
     if (req.target != nil && [req.target respondsToSelector:@selector(onNetRequestFailure:err:)]) {
         [req.target onNetRequestFailure:req err:err];
     }

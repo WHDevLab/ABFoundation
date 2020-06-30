@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ABWebSocketProtocol <NSObject>
 
+- (void)webSocketDidConnected:(ABWebSocket *)socket;
 - (void)webSocket:(ABWebSocket *)socket didReceiveMessage:(id)message;
 - (void)webSocket:(ABWebSocket *)socket didConnectFailWithError:(nullable NSError *)error;
 - (void)webSocket:(ABWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason;

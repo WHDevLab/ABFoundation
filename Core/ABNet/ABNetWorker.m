@@ -19,13 +19,16 @@
     self = [super init];
     if (self) {
         self.manager = [[AFHTTPSessionManager alloc] init];
-        //申明请求的数据是json类型
-//        _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        if ([[ABNetConfiguration shared].provider.contentType isEqualToString:@"application/json"]) {
+            //申明请求的数据是json类型
+            _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        } else {
+            [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
+        }
         //申明返回的结果是json类型
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
         // 申明contentType
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",nil];
-        [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
         self.isFree = true;
     }
     return self;
@@ -41,7 +44,7 @@
     [headers setValue:request.timestamp forKey:@"fk"];
     NSString *method = [request.method lowercaseString];
 
-    NSString *url = [NSString stringWithFormat:@"%@%@", request.host, request.uri];
+    NSString *url = [NSString stringWithFormat:@"%@%@", request.host, request.realUri];
     NSDictionary *params = request.realParams;
 
 
@@ -78,18 +81,34 @@
 
 - (void)finishRequest:(ABNetRequest *)request responseObject:(NSDictionary *)responseObject {
     self.isFree = true;
+    NSString *codeKey = [[ABNetConfiguration shared].provider codeKey:request];
+    NSString *msgKey = [[ABNetConfiguration shared].provider msgKey:request];
+    if (codeKey == nil || msgKey == nil) {
+        [self.delegate netWorkerFinish:self request:request responseObject:responseObject];
+        return;
+    }
     
-    ABNetError *error = [[ABNetError alloc] initWithDic:responseObject];
-    if (error.code == [ABNetConfiguration shared].provider.successCode) {
-        NSString *dataKey = [ABNetConfiguration shared].provider.dataKey;
+    NSInteger successCodeValue = [[ABNetConfiguration shared].provider successCode:request];
+    
+    NSInteger codeValue = [responseObject[codeKey] integerValue];
+    NSString *msgValue = responseObject[msgKey];
+    
+    if (codeValue == successCodeValue || responseObject[codeKey] == nil) {
+        NSString *dataKey = [[ABNetConfiguration shared].provider dataKey:request];
         if (dataKey == nil) {
             [self.delegate netWorkerFinish:self request:request responseObject:responseObject];
         }else{
-            [self.delegate netWorkerFinish:self request:request responseObject:responseObject[dataKey]];
+            NSDictionary *res = responseObject[dataKey];
+            if ([res isKindOfClass:[NSArray class]]) {
+                [self.delegate netWorkerFinish:self request:request responseObject:@{@"list":res}];
+            }else{
+                [self.delegate netWorkerFinish:self request:request responseObject:res];
+            }
         }
-        
     }else{
-        
+        ABNetError *error = [[ABNetError alloc] init];
+        error.code = codeValue;
+        error.message = msgValue;
         
         self.isFree = true;
         [self.delegate netWorkerFailure:self request:request err:error];
@@ -107,7 +126,9 @@
         [string appendString:[NSString stringWithFormat:@"**Method:%@\n", request.method]];
         [string appendString:[NSString stringWithFormat:@"**Headers:%@\n", request.headers]];
         [string appendString:[NSString stringWithFormat:@"**Params:%@\n", request.params]];
-        [string appendString:[NSString stringWithFormat:@"**ReasonObject:%@\n", responseObject]];
+        [string appendString:[NSString stringWithFormat:@"**Reason:%@\n", error.message]];
+        [string appendString:[NSString stringWithFormat:@"**ReasonCode:%li\n", (long)error.code]];
+//        [string appendString:[NSString stringWithFormat:@"**ReasonObject:%@\n", responseObject]];
         [string appendString:@"****************************************************\n\n"];
         
         fprintf(stderr, "%s", [string UTF8String]);

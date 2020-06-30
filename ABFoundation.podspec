@@ -15,10 +15,14 @@ Pod::Spec.new do |s|
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
 	s.source_files     = 'Core/*.{h,m}'
 	s.dependency "AFNetworking"
+	s.dependency "SocketRocket"
 	s.subspec 'ABNet' do |ss|
 		ss.source_files = 'Core/ABNet/*.{h,m}'
 	end
 	s.subspec 'ABMQ' do |ss|
 		ss.source_files = 'Core/ABMQ/*.{h,m}'
+	end
+	s.subspec 'ABWebSocket' do |ss|
+		ss.source_files = 'Core/ABWebSocket/*.{h,m}'
 	end
 end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
+		F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FB24A0B540004DD6B8 /* ABNumber.m */; };
 		F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */ = {isa = PBXBuildFile; fileRef = F136DD1B24791F2200412394 /* ABMQSubscibe.m */; };
 		F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F142506B24974760003E83D8 /* ABWebSocketConfiguration.m */; };
 		F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F14250742499EF5F003E83D8 /* ABFileManager.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		582B130658D1D0185E9FA1DE /* Pods-ABFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.release.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11682FA24A0B540004DD6B8 /* ABNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNumber.h; sourceTree = "<group>"; };
+		F11682FB24A0B540004DD6B8 /* ABNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNumber.m; sourceTree = "<group>"; };
 		F136DD1A24791F2200412394 /* ABMQSubscibe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQSubscibe.h; sourceTree = "<group>"; };
 		F136DD1B24791F2200412394 /* ABMQSubscibe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQSubscibe.m; sourceTree = "<group>"; };
 		F142506A24974760003E83D8 /* ABWebSocketConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocketConfiguration.h; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				F196667E247B9B57008590F8 /* ABWeakObject.m */,
 				F14250732499EF5F003E83D8 /* ABFileManager.h */,
 				F14250742499EF5F003E83D8 /* ABFileManager.m */,
+				F11682FA24A0B540004DD6B8 /* ABNumber.h */,
+				F11682FB24A0B540004DD6B8 /* ABNumber.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -326,6 +331,7 @@
 				F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */,
 				F14C35A52475185E0060D435 /* main.m in Sources */,
 				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,
+				F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */,
 				F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */,
 				F14C35C824751CB70060D435 /* ABNetQuene.m in Sources */,
 			);

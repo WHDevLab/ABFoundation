@@ -96,6 +96,7 @@
 
 - (void)netWorkerFinish:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request responseObject:(NSDictionary *)responseObject {
     [self callBackSucess:request responseObject:responseObject];
+    
     request.status = ABNetRequestStatusTombstone;
 }
 
