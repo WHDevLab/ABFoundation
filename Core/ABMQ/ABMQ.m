@@ -88,6 +88,7 @@
     for (ABMQSubscibe *subscribe in self.subscribeObjs) {
         NSDictionary *message = [subscribe next];
         [(id<IABMQSubscribe>)subscribe.obj abmq:self onReceiveMessage:message[@"data"] channel:message[@"channel"]];
+        [subscribe free:false];
     }
 }
 
