@@ -43,16 +43,20 @@
 - (void)push:(ABNetRequest *)request {
     request.handleTarget = self;
     id<ABNetPluginType> pl = [self getPL:request];
-    if (pl == nil) {
-        [self _realRequest:request];
-    } else {
+    if (pl != nil && [pl respondsToSelector:@selector(prepare:)]) {
         ABNetRequest *req = [pl prepare:request];
+        
         if ([pl canSend:req]) {
             [self _realRequest:req];
         }else{
-            NSDictionary *obj = [pl process:req response:@{}];
-            [self onSuccess:req obj:obj];
+            if ([pl respondsToSelector:@selector(process:response:)]) {
+                NSDictionary *obj = [pl process:req response:@{}];
+                [self onSuccess:req obj:obj];
+            }
         }
+    } else {
+        [self _realRequest:request];
+        
     }
 }
 
@@ -78,17 +82,24 @@
 
 - (void)onNetRequestSuccess:(ABNetRequest *)req obj:(NSDictionary *)obj isCache:(BOOL)isCache {
     id<ABNetPluginType> pl = [self getPL:req];
-    if (pl == nil) {
-        [self onSuccess:req obj:obj];
-    }else{
+    if (pl != nil && [pl respondsToSelector:@selector(process:response:)]) {
         NSDictionary *nObj = [pl process:req response:obj];
         [self onSuccess:req obj:nObj];
+    }else{
+        [self onSuccess:req obj:obj];
     }
-    
 }
 
 - (void)onNetRequestFailure:(ABNetRequest *)req err:(ABNetError *)err {
-    NSLog(@"%@", [err des]);
+    id<ABNetPluginType> pl = [self getPL:req];
+    if (self.errorHandle) {
+        [self.errorHandle didReceiveError:req error:err];
+    }
+    
+    if (pl != nil && [pl respondsToSelector:@selector(didReceiveError:error:)]) {
+        [pl didReceiveError:req error:err];
+    }
+    
     if (req.target != nil && [req.target respondsToSelector:@selector(onNetRequestFailure:err:)]) {
         [req.target onNetRequestFailure:req err:err];
     }

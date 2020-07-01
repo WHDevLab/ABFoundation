@@ -29,4 +29,20 @@
                                      stringByReplacingOccurrencesOfString:@" " withString:@""];
     return deviceTokenStr;
 }
+
++ (BOOL)isNotchScreen {
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return NO;
+    }
+
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    NSInteger notchValue = size.width / size.height * 100;
+
+    if (216 == notchValue || 46 == notchValue) {
+        return YES;
+    }
+
+    return NO;
+}
 @end

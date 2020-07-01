@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class ABMQ;
 @protocol IABMQSubscribe <NSObject>
-- (void)onReceiveMessageFromMQ:(id)message;
+- (void)abmq:(ABMQ *)abmq onReceiveMessage:(id)message channel:(NSString *)channel;
 @end
 
 @interface ABMQ : NSObject

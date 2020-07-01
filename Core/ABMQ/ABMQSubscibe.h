@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)next;
 - (void)pop;
 - (void)free:(BOOL)must;
-- (void)append:(id)message;
+- (void)append:(id)message channel:(NSString *)channel;
 @end
 
 NS_ASSUME_NONNULL_END

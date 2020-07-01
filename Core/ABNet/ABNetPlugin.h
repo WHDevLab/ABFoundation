@@ -10,6 +10,7 @@
 #define ABNetPluginType_h
 #import "ABNetRequest.h"
 @protocol ABNetPluginType <NSObject>
+@optional
 /// Called to modify a request before sending.
 - (ABNetRequest *)prepare:(ABNetRequest *)request;
 
@@ -24,6 +25,9 @@
 
 /// Called to modify a result before completion.
 - (NSDictionary *)process:(ABNetRequest *)request response:(NSDictionary *)response;
+
+- (void)didReceiveError:(ABNetRequest *)request error:(ABNetError *)error;
+
 @end
 
 #endif /* ABNetPluginType_h */

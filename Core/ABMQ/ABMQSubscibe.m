@@ -39,7 +39,7 @@
     }
 }
 
-- (void)append:(id)message {
-    [self.quene addObject:message];
+- (void)append:(id)message channel:(NSString *)channel {
+    [self.quene addObject:@{@"channel":channel, @"data":message}];
 }
 @end

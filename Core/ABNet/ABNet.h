@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABNet : NSObject
 + (ABNet *)shared;
+@property (nonatomic, strong) id<ABNetPluginType> errorHandle;
 - (void)push:(ABNetRequest *)req;
 - (void)registerDataProcess:(id<ABNetPluginType>)process key:(NSString *)key;
 - (void)ready;

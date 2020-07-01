@@ -76,7 +76,7 @@
     @synchronized (self.subscribeObjs) {
         for (ABMQSubscibe *subscribe in self.subscribeObjs) {
             if ([subscribe.channels containsObject:channel]) {
-                [subscribe append:message];
+                [subscribe append:message channel:channel];
             }
         }
         
@@ -86,10 +86,8 @@
 
 - (void)messageDistribute {
     for (ABMQSubscibe *subscribe in self.subscribeObjs) {
-        id message = [subscribe next];
-        if (message) {
-            [(id<IABMQSubscribe>)subscribe.obj onReceiveMessageFromMQ:message];
-        }
+        NSDictionary *message = [subscribe next];
+        [(id<IABMQSubscribe>)subscribe.obj abmq:self onReceiveMessage:message[@"data"] channel:message[@"channel"]];
     }
 }
 
