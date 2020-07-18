@@ -33,4 +33,8 @@
     return [NSString stringWithFormat:@"code:%li;reason:%@", (long)self.code,self.message];
 }
 
+- (BOOL)isNetReachable {
+    return [AFNetworkReachabilityManager manager].reachable;
+}
+
 @end

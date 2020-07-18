@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
 		F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FB24A0B540004DD6B8 /* ABNumber.m */; };
+		F11F7C1F24BFDD2600DB96B3 /* NSObject+KVOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0224BFDD2500DB96B3 /* NSObject+KVOCrash.m */; };
+		F11F7C2024BFDD2600DB96B3 /* NSTimer+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0324BFDD2500DB96B3 /* NSTimer+Crash.m */; };
+		F11F7C2124BFDD2600DB96B3 /* NSObject+SelectorCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0424BFDD2500DB96B3 /* NSObject+SelectorCrash.m */; };
+		F11F7C2224BFDD2600DB96B3 /* NSObject+WOSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0524BFDD2500DB96B3 /* NSObject+WOSwizzle.m */; };
+		F11F7C2324BFDD2600DB96B3 /* NSObject+NSNotificationCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0824BFDD2500DB96B3 /* NSObject+NSNotificationCrash.m */; };
+		F11F7C2424BFDD2600DB96B3 /* WOCrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0924BFDD2500DB96B3 /* WOCrashLog.m */; };
+		F11F7C2524BFDD2600DB96B3 /* WOCrashProtectorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0B24BFDD2500DB96B3 /* WOCrashProtectorManager.m */; };
+		F11F7C2624BFDD2600DB96B3 /* NSString+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0D24BFDD2500DB96B3 /* NSString+WOCrash.m */; };
+		F11F7C2724BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0E24BFDD2500DB96B3 /* NSMutableDictionary+WOCrash.m */; };
+		F11F7C2824BFDD2600DB96B3 /* NSArray+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1024BFDD2500DB96B3 /* NSArray+WOCrash.m */; };
+		F11F7C2924BFDD2600DB96B3 /* NSAttributedString+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1124BFDD2600DB96B3 /* NSAttributedString+WOCrash.m */; };
+		F11F7C2A24BFDD2600DB96B3 /* NSMutableAttributedString+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1524BFDD2600DB96B3 /* NSMutableAttributedString+WOCrash.m */; };
+		F11F7C2B24BFDD2600DB96B3 /* NSMutableString+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1824BFDD2600DB96B3 /* NSMutableString+WOCrash.m */; };
+		F11F7C2C24BFDD2600DB96B3 /* NSDictionary+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1B24BFDD2600DB96B3 /* NSDictionary+WOCrash.m */; };
+		F11F7C2D24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1C24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m */; };
 		F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */ = {isa = PBXBuildFile; fileRef = F136DD1B24791F2200412394 /* ABMQSubscibe.m */; };
 		F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F142506B24974760003E83D8 /* ABWebSocketConfiguration.m */; };
 		F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F14250742499EF5F003E83D8 /* ABFileManager.m */; };
@@ -28,6 +43,9 @@
 		F14C35CC24751CB70060D435 /* ABTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C224751CB70060D435 /* ABTime.m */; };
 		F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35C324751CB70060D435 /* ABWeakProxy.m */; };
 		F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */; };
+		F16CBB1D24ADE90B00CA6C18 /* ABIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */; };
+		F16CBB3E24AE109000CA6C18 /* ABAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB3D24AE109000CA6C18 /* ABAudio.m */; };
+		F16CBB4024AE114B00CA6C18 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F16CBB3F24AE114B00CA6C18 /* 1.mp3 */; };
 		F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F196667E247B9B57008590F8 /* ABWeakObject.m */; };
 		F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCED12478C1E8005B94D4 /* ABMQ.m */; };
 		F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EADCCD24873E4000B17B1A /* ABWebSocket.m */; };
@@ -38,6 +56,36 @@
 		AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11682FA24A0B540004DD6B8 /* ABNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNumber.h; sourceTree = "<group>"; };
 		F11682FB24A0B540004DD6B8 /* ABNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNumber.m; sourceTree = "<group>"; };
+		F11F7C0024BFDD2500DB96B3 /* WOCrashLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOCrashLog.h; sourceTree = "<group>"; };
+		F11F7C0124BFDD2500DB96B3 /* NSObject+NSNotificationCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSNotificationCrash.h"; sourceTree = "<group>"; };
+		F11F7C0224BFDD2500DB96B3 /* NSObject+KVOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOCrash.m"; sourceTree = "<group>"; };
+		F11F7C0324BFDD2500DB96B3 /* NSTimer+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Crash.m"; sourceTree = "<group>"; };
+		F11F7C0424BFDD2500DB96B3 /* NSObject+SelectorCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorCrash.m"; sourceTree = "<group>"; };
+		F11F7C0524BFDD2500DB96B3 /* NSObject+WOSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WOSwizzle.m"; sourceTree = "<group>"; };
+		F11F7C0624BFDD2500DB96B3 /* WOCrashProtectorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOCrashProtectorManager.h; sourceTree = "<group>"; };
+		F11F7C0724BFDD2500DB96B3 /* NSObject+KVOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOCrash.h"; sourceTree = "<group>"; };
+		F11F7C0824BFDD2500DB96B3 /* NSObject+NSNotificationCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSNotificationCrash.m"; sourceTree = "<group>"; };
+		F11F7C0924BFDD2500DB96B3 /* WOCrashLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOCrashLog.m; sourceTree = "<group>"; };
+		F11F7C0A24BFDD2500DB96B3 /* NSTimer+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Crash.h"; sourceTree = "<group>"; };
+		F11F7C0B24BFDD2500DB96B3 /* WOCrashProtectorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOCrashProtectorManager.m; sourceTree = "<group>"; };
+		F11F7C0D24BFDD2500DB96B3 /* NSString+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C0E24BFDD2500DB96B3 /* NSMutableDictionary+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C0F24BFDD2500DB96B3 /* NSMutableAttributedString+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1024BFDD2500DB96B3 /* NSArray+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1124BFDD2600DB96B3 /* NSAttributedString+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1224BFDD2600DB96B3 /* NSMutableString+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1324BFDD2600DB96B3 /* NSMutableArray+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1424BFDD2600DB96B3 /* NSDictionary+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1524BFDD2600DB96B3 /* NSMutableAttributedString+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1624BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1724BFDD2600DB96B3 /* NSString+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1824BFDD2600DB96B3 /* NSMutableString+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1924BFDD2600DB96B3 /* NSArray+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1A24BFDD2600DB96B3 /* NSAttributedString+WOCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WOCrash.h"; sourceTree = "<group>"; };
+		F11F7C1B24BFDD2600DB96B3 /* NSDictionary+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1C24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+WOCrash.m"; sourceTree = "<group>"; };
+		F11F7C1D24BFDD2600DB96B3 /* NSObject+SelectorCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorCrash.h"; sourceTree = "<group>"; };
+		F11F7C1E24BFDD2600DB96B3 /* NSObject+WOSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WOSwizzle.h"; sourceTree = "<group>"; };
 		F136DD1A24791F2200412394 /* ABMQSubscibe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQSubscibe.h; sourceTree = "<group>"; };
 		F136DD1B24791F2200412394 /* ABMQSubscibe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQSubscibe.m; sourceTree = "<group>"; };
 		F142506A24974760003E83D8 /* ABWebSocketConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocketConfiguration.h; sourceTree = "<group>"; };
@@ -77,6 +125,11 @@
 		F14C35C324751CB70060D435 /* ABWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWeakProxy.m; sourceTree = "<group>"; };
 		F14C35CE24752D4A0060D435 /* ABNetConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetConfiguration.h; sourceTree = "<group>"; };
 		F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetConfiguration.m; sourceTree = "<group>"; };
+		F16CBB1B24ADE90B00CA6C18 /* ABIteration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABIteration.h; sourceTree = "<group>"; };
+		F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABIteration.m; sourceTree = "<group>"; };
+		F16CBB3C24AE109000CA6C18 /* ABAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAudio.h; sourceTree = "<group>"; };
+		F16CBB3D24AE109000CA6C18 /* ABAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABAudio.m; sourceTree = "<group>"; };
+		F16CBB3F24AE114B00CA6C18 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		F196667D247B9B57008590F8 /* ABWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWeakObject.h; sourceTree = "<group>"; };
 		F196667E247B9B57008590F8 /* ABWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWeakObject.m; sourceTree = "<group>"; };
 		F1BCCED02478C1E8005B94D4 /* ABMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQ.h; sourceTree = "<group>"; };
@@ -113,6 +166,51 @@
 				AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F11F7BFF24BFDD2500DB96B3 /* WOCrashProtector */ = {
+			isa = PBXGroup;
+			children = (
+				F11F7C0024BFDD2500DB96B3 /* WOCrashLog.h */,
+				F11F7C0124BFDD2500DB96B3 /* NSObject+NSNotificationCrash.h */,
+				F11F7C0224BFDD2500DB96B3 /* NSObject+KVOCrash.m */,
+				F11F7C0324BFDD2500DB96B3 /* NSTimer+Crash.m */,
+				F11F7C0424BFDD2500DB96B3 /* NSObject+SelectorCrash.m */,
+				F11F7C0524BFDD2500DB96B3 /* NSObject+WOSwizzle.m */,
+				F11F7C0624BFDD2500DB96B3 /* WOCrashProtectorManager.h */,
+				F11F7C0724BFDD2500DB96B3 /* NSObject+KVOCrash.h */,
+				F11F7C0824BFDD2500DB96B3 /* NSObject+NSNotificationCrash.m */,
+				F11F7C0924BFDD2500DB96B3 /* WOCrashLog.m */,
+				F11F7C0A24BFDD2500DB96B3 /* NSTimer+Crash.h */,
+				F11F7C0B24BFDD2500DB96B3 /* WOCrashProtectorManager.m */,
+				F11F7C0C24BFDD2500DB96B3 /* WOContainer */,
+				F11F7C1D24BFDD2600DB96B3 /* NSObject+SelectorCrash.h */,
+				F11F7C1E24BFDD2600DB96B3 /* NSObject+WOSwizzle.h */,
+			);
+			path = WOCrashProtector;
+			sourceTree = "<group>";
+		};
+		F11F7C0C24BFDD2500DB96B3 /* WOContainer */ = {
+			isa = PBXGroup;
+			children = (
+				F11F7C0D24BFDD2500DB96B3 /* NSString+WOCrash.m */,
+				F11F7C0E24BFDD2500DB96B3 /* NSMutableDictionary+WOCrash.m */,
+				F11F7C0F24BFDD2500DB96B3 /* NSMutableAttributedString+WOCrash.h */,
+				F11F7C1024BFDD2500DB96B3 /* NSArray+WOCrash.m */,
+				F11F7C1124BFDD2600DB96B3 /* NSAttributedString+WOCrash.m */,
+				F11F7C1224BFDD2600DB96B3 /* NSMutableString+WOCrash.h */,
+				F11F7C1324BFDD2600DB96B3 /* NSMutableArray+WOCrash.h */,
+				F11F7C1424BFDD2600DB96B3 /* NSDictionary+WOCrash.h */,
+				F11F7C1524BFDD2600DB96B3 /* NSMutableAttributedString+WOCrash.m */,
+				F11F7C1624BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.h */,
+				F11F7C1724BFDD2600DB96B3 /* NSString+WOCrash.h */,
+				F11F7C1824BFDD2600DB96B3 /* NSMutableString+WOCrash.m */,
+				F11F7C1924BFDD2600DB96B3 /* NSArray+WOCrash.h */,
+				F11F7C1A24BFDD2600DB96B3 /* NSAttributedString+WOCrash.h */,
+				F11F7C1B24BFDD2600DB96B3 /* NSDictionary+WOCrash.m */,
+				F11F7C1C24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m */,
+			);
+			path = WOContainer;
 			sourceTree = "<group>";
 		};
 		F136DD192479150200412394 /* ABMQ */ = {
@@ -166,6 +264,7 @@
 				F14C359E2475185E0060D435 /* Assets.xcassets */,
 				F14C35A02475185E0060D435 /* LaunchScreen.storyboard */,
 				F14C35A32475185E0060D435 /* Info.plist */,
+				F16CBB3F24AE114B00CA6C18 /* 1.mp3 */,
 				F14C35A42475185E0060D435 /* main.m */,
 			);
 			path = ABFoundation;
@@ -174,6 +273,7 @@
 		F14C35AB24751CB60060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F11F7BFF24BFDD2500DB96B3 /* WOCrashProtector */,
 				F14250692497469A003E83D8 /* ABWebSocket */,
 				F136DD192479150200412394 /* ABMQ */,
 				F14C35AC24751CB60060D435 /* ABDevice.h */,
@@ -190,6 +290,10 @@
 				F14250742499EF5F003E83D8 /* ABFileManager.m */,
 				F11682FA24A0B540004DD6B8 /* ABNumber.h */,
 				F11682FB24A0B540004DD6B8 /* ABNumber.m */,
+				F16CBB1B24ADE90B00CA6C18 /* ABIteration.h */,
+				F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */,
+				F16CBB3C24AE109000CA6C18 /* ABAudio.h */,
+				F16CBB3D24AE109000CA6C18 /* ABAudio.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -276,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16CBB4024AE114B00CA6C18 /* 1.mp3 in Resources */,
 				F14C35A22475185E0060D435 /* LaunchScreen.storyboard in Resources */,
 				F14C359F2475185E0060D435 /* Assets.xcassets in Resources */,
 			);
@@ -314,22 +419,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */,
+				F11F7C2324BFDD2600DB96B3 /* NSObject+NSNotificationCrash.m in Sources */,
 				F14C35CC24751CB70060D435 /* ABTime.m in Sources */,
 				F14C359A2475185A0060D435 /* ViewController.m in Sources */,
+				F16CBB3E24AE109000CA6C18 /* ABAudio.m in Sources */,
 				F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */,
+				F16CBB1D24ADE90B00CA6C18 /* ABIteration.m in Sources */,
+				F11F7C2C24BFDD2600DB96B3 /* NSDictionary+WOCrash.m in Sources */,
 				F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */,
+				F11F7C2B24BFDD2600DB96B3 /* NSMutableString+WOCrash.m in Sources */,
+				F11F7C2A24BFDD2600DB96B3 /* NSMutableAttributedString+WOCrash.m in Sources */,
+				F11F7C2D24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m in Sources */,
 				F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */,
+				F11F7C2124BFDD2600DB96B3 /* NSObject+SelectorCrash.m in Sources */,
 				F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */,
 				F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */,
 				F14C35C524751CB70060D435 /* ABNet.m in Sources */,
 				F14C35CB24751CB70060D435 /* ABDevice.m in Sources */,
 				F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */,
 				F14C35CA24751CB70060D435 /* ABNetError.m in Sources */,
+				F11F7C2524BFDD2600DB96B3 /* WOCrashProtectorManager.m in Sources */,
+				F11F7C2224BFDD2600DB96B3 /* NSObject+WOSwizzle.m in Sources */,
 				F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */,
 				F14C35942475185A0060D435 /* AppDelegate.m in Sources */,
 				F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */,
+				F11F7C2824BFDD2600DB96B3 /* NSArray+WOCrash.m in Sources */,
+				F11F7C2024BFDD2600DB96B3 /* NSTimer+Crash.m in Sources */,
 				F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */,
+				F11F7C1F24BFDD2600DB96B3 /* NSObject+KVOCrash.m in Sources */,
+				F11F7C2924BFDD2600DB96B3 /* NSAttributedString+WOCrash.m in Sources */,
 				F14C35A52475185E0060D435 /* main.m in Sources */,
+				F11F7C2424BFDD2600DB96B3 /* WOCrashLog.m in Sources */,
+				F11F7C2624BFDD2600DB96B3 /* NSString+WOCrash.m in Sources */,
+				F11F7C2724BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.m in Sources */,
 				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,
 				F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */,
 				F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */,

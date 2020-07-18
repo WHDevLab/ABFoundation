@@ -48,6 +48,9 @@
         
         if ([pl canSend:req]) {
             [self _realRequest:req];
+            if ([pl respondsToSelector:@selector(willSend:)]) {
+                [pl willSend:request];
+            }
         }else{
             if ([pl respondsToSelector:@selector(process:response:)]) {
                 NSDictionary *obj = [pl process:req response:@{}];
@@ -78,10 +81,14 @@
         request.realUri = request.uri;
     }
     [self.netQuene put:request];
+
 }
 
 - (void)onNetRequestSuccess:(ABNetRequest *)req obj:(NSDictionary *)obj isCache:(BOOL)isCache {
     id<ABNetPluginType> pl = [self getPL:req];
+    if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
+        [pl endSend:req];
+    }
     if (pl != nil && [pl respondsToSelector:@selector(process:response:)]) {
         NSDictionary *nObj = [pl process:req response:obj];
         [self onSuccess:req obj:nObj];
@@ -95,7 +102,9 @@
     if (self.errorHandle) {
         [self.errorHandle didReceiveError:req error:err];
     }
-    
+    if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
+        [pl endSend:req];
+    }
     if (pl != nil && [pl respondsToSelector:@selector(didReceiveError:error:)]) {
         [pl didReceiveError:req error:err];
     }

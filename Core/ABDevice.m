@@ -8,6 +8,7 @@
 
 #import "ABDevice.h"
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 @implementation ABDevice
 - (NSString *)appVersion {
     return [UIDevice currentDevice].systemVersion;
@@ -44,5 +45,27 @@
     }
 
     return NO;
+}
+
++ (BOOL)isAvailableCamera {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        // 用户是否允许摄像头使用
+        NSString * mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus  authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        // 不允许弹出提示框
+        if (authorizationStatus == AVAuthorizationStatusRestricted|| authorizationStatus == AVAuthorizationStatusDenied) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    return false;
+}
+
++ (void)gotoAppSetting {
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 @end

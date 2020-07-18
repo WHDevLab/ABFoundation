@@ -43,11 +43,19 @@
 
 
 // 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒
-- (NSString *)timestampToTime:(NSString *)timestamp {
-    NSTimeInterval time = [self secondTimestamp:timestamp];
++ (NSString *)timestampToTime:(NSString *)timestamp format:(nullable NSString *)format{
+    NSTimeInterval time = [timestamp doubleValue];
+    if (timestamp.length > 10) {
+        time = [timestamp doubleValue]/1000;
+    }
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    if (format == nil) {
+        [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
+    }else{
+        [dateFormatter setDateFormat:format];
+    }
+    
     NSString *currentDateStr = [dateFormatter stringFromDate:date];
     return  currentDateStr;
 }
@@ -95,7 +103,8 @@
     if (days < 2) {
         return @"昨天";
     }
-    return [self timestampToTime:timestamp];
+    return @"";
+//    return [self timestampToTime:timestamp];
 }
 
 //+ (NSString *) compareCurrentTime:(NSString *)str

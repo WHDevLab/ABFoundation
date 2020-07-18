@@ -49,13 +49,28 @@
 
 - (void)put:(ABNetRequest *)request {
     //取消重复请求
-    [self.taskMap[request.identifier] cancel];
-    [self.taskMap removeObjectForKey:request.identifier];
+//    [self.taskMap[request.identifier] cancel];
+//    [self.taskMap removeObjectForKey:request.identifier];
     
     //先进后出，照顾用户最新的操作
     [self.stack insertObject:request atIndex:0];
+    [self releaseExpire];
     [self consumQuene];
 
+}
+
+- (void)releaseExpire {
+    @synchronized (self.stack) {
+        NSMutableArray *tmpStack = [[NSMutableArray alloc] init];
+        for (ABNetRequest *req in self.stack) {
+            if (req.status == ABNetRequestStatusTombstone && req.isExpire) {
+                
+            }else{
+                [tmpStack addObject:req];
+            }
+        }
+        self.stack = tmpStack;
+    }
 }
 
 - (void)consumQuene {

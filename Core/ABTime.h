@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (ABTime *)shared;
 + (NSString *)time;
 + (NSString *)timestamp;
-- (NSString *)timestampToTime:(NSString *)timestamp;
++ (NSString *)timestampToTime:(NSString *)timestamp format:(nullable NSString *)format;
 - (NSString *)howMuchTimePassed:(NSString *)timestamp;
 @end
 

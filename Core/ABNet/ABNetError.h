@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AFNetworking.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABNetError : NSObject
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (ABNetError *)initWithError:(NSError *)error;
 - (ABNetError *)initWithDic:(NSDictionary *)dic;
+- (BOOL)isNetReachable;
 @end
 
 NS_ASSUME_NONNULL_END

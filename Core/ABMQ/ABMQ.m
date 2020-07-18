@@ -40,6 +40,7 @@
 - (void)subscribe:(id<IABMQSubscribe>)obj channels:(NSArray<NSString *> *)channels autoAck:(BOOL)autoAck {
     ABMQSubscibe *subscribe = [[ABMQSubscibe alloc] initWithTarget:obj];
     subscribe.channels = [[NSMutableArray alloc] initWithArray:channels];
+    subscribe.autoAck = autoAck;
     [self.subscribeObjs addObject:subscribe];
 }
 
@@ -57,6 +58,18 @@
                 subscibe.channels = [[NSMutableArray alloc] initWithArray:[set1 allObjects]];
             }
         }];
+    }
+}
+
+- (void)clearInvalid {
+    @synchronized (self.subscribeObjs) {
+        NSMutableArray *subscribeObjs = [[NSMutableArray alloc] init];
+        [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *subscibe, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (subscibe.obj != nil) {
+                [subscribeObjs addObject:subscibe];
+            }
+        }];
+        self.subscribeObjs = subscribeObjs;
     }
 }
 
@@ -85,10 +98,14 @@
 }
 
 - (void)messageDistribute {
+    [self clearInvalid];
     for (ABMQSubscibe *subscribe in self.subscribeObjs) {
         NSDictionary *message = [subscribe next];
-        [(id<IABMQSubscribe>)subscribe.obj abmq:self onReceiveMessage:message[@"data"] channel:message[@"channel"]];
-        [subscribe free:false];
+        if (message != nil) {
+            [(id<IABMQSubscribe>)subscribe.obj abmq:self onReceiveMessage:message[@"data"] channel:message[@"channel"]];
+            [subscribe free:false];
+        }
+        
     }
 }
 

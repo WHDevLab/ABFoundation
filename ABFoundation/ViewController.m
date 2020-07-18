@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ABFoundation.h"
 #import "ABWebSocket.h"
+#import "ABAudio.h"
 @interface ViewController ()<INetData, IABMQSubscribe>
 @property (nonatomic, strong) ABWebSocket *socket;
 @end
@@ -22,10 +23,14 @@
     self.view.backgroundColor = [UIColor redColor];
     
     [self testABNet];
-    [self testABMQ];
-    [self testABWebSocket];
-}
+//    [self testABMQ];
+//    [self testABWebSocket];
+    
 
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[ABAudio shared] playBundleFileWithName:@"1.mp3"];
+}
 
 #pragma mark ---- test abnet ---------
 

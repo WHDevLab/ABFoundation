@@ -49,6 +49,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;
 
 - (void)ready;
+
+- (BOOL)isExpire;
 @end
 
 NS_ASSUME_NONNULL_END

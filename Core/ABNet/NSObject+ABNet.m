@@ -26,15 +26,23 @@
 - (void)fetchMethod:(NSString *)method host:(nullable NSString *)host uri:(NSString *)uri params:(nullable NSDictionary *)params isCancelWhenDealloc:(BOOL)isCancelWhenDealloc cachePolicy:(ABNetRequestCachePolicy)cachePolicy cacheKey:(NSString *)cacheKey {
     
     ABNetRequest *request = [[ABNetRequest alloc] init];
-    request.headers = [[ABNetConfiguration shared].provider headers:uri];
-    if (host == nil) {
-        request.host = [[ABNetConfiguration shared].provider host:uri];
-    }else{
-        request.host = host;
+    if ([uri hasPrefix:@"http"]) {
+        NSURL *uu = [NSURL URLWithString:uri];
+        request.host = [NSString stringWithFormat:@"%@://%@:%@", uu.scheme,uu.host, uu.port];
+        request.uri = [NSURL URLWithString:uri].path;
+    }else {
+        if (host == nil) {
+            request.host = [[ABNetConfiguration shared].provider host:uri];
+        }else{
+            request.host = host;
+        }
+        request.uri = uri;
     }
+    request.headers = [[ABNetConfiguration shared].provider headers:uri];
+    
     request.params = params;
     request.method = method;
-    request.uri = uri;
+    
     request.target = (id<INetData>)self;
     request.isCancelWhenTargetDealloc = isCancelWhenDealloc;
     

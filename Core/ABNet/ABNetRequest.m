@@ -8,6 +8,9 @@
 
 #import "ABNetRequest.h"
 #import <CommonCrypto/CommonCrypto.h>
+@interface ABNetRequest ()
+@property (nonatomic, assign) NSTimeInterval creatTime;
+@end
 @implementation ABNetRequest
 - (instancetype)init
 {
@@ -15,6 +18,7 @@
     if (self) {
         self.method = @"get";
         self.timestamp = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+        self.creatTime = [[NSDate date] timeIntervalSince1970];
         self.status = ABNetRequestStatusNormal;
     }
     return self;
@@ -40,4 +44,11 @@
     return mString;
 }
 
+- (BOOL)isExpire {
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    if (now-self.creatTime > 60) {
+        return true;
+    }
+    return false;
+}
 @end

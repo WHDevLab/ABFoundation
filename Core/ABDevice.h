@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)appVersion;
 - (NSString *)deviceTokenStringFromData:(NSData *)data;
 + (BOOL)isNotchScreen;
+
++ (BOOL)isAvailableCamera;
+
++ (void)gotoAppSetting;
+
 @end
 
 NS_ASSUME_NONNULL_END

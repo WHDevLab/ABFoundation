@@ -18,4 +18,6 @@
 #import "ABFileManager.h"
 #import "ABNumber.h"
 #import "ABWebSocket.h"
+#import "ABIteration.h"
+#import "ABAudio.h"
 #endif /* ABFoundation_h */

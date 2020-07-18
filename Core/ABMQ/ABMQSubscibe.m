@@ -16,6 +16,7 @@
         self.quene = [[NSMutableArray alloc] init];
         self.channels = [[NSMutableArray alloc] init];
         self.isFree = true;
+        self.autoAck = true;
     }
     return self;
 }
