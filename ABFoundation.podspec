@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 	s.source           = {:git => "https://github.com/whdevlab/ABFoundation.git", :tag => s.version.to_s}
 	s.social_media_url = 'https://github.com/whdevlab/ABFoundation'
 	s.requires_arc     = true
-	s.platform         = :ios, '10.0'
+	s.platform         = :ios, '9.0'
 	s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics', 'Photos'
 	s.source_files     = 'Core/*.{h,m}'
 	s.dependency "AFNetworking"
