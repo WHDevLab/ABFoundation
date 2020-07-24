@@ -47,6 +47,8 @@
 		F16CBB3E24AE109000CA6C18 /* ABAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB3D24AE109000CA6C18 /* ABAudio.m */; };
 		F16CBB4024AE114B00CA6C18 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F16CBB3F24AE114B00CA6C18 /* 1.mp3 */; };
 		F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F196667E247B9B57008590F8 /* ABWeakObject.m */; };
+		F1A4D89124C7E1BA003A6031 /* ABTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D89024C7E1BA003A6031 /* ABTimer.m */; };
+		F1A4D89A24C92C36003A6031 /* ABTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D89924C92C36003A6031 /* ABTools.m */; };
 		F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCED12478C1E8005B94D4 /* ABMQ.m */; };
 		F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EADCCD24873E4000B17B1A /* ABWebSocket.m */; };
 /* End PBXBuildFile section */
@@ -132,6 +134,10 @@
 		F16CBB3F24AE114B00CA6C18 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		F196667D247B9B57008590F8 /* ABWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWeakObject.h; sourceTree = "<group>"; };
 		F196667E247B9B57008590F8 /* ABWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWeakObject.m; sourceTree = "<group>"; };
+		F1A4D88F24C7E1BA003A6031 /* ABTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTimer.h; sourceTree = "<group>"; };
+		F1A4D89024C7E1BA003A6031 /* ABTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTimer.m; sourceTree = "<group>"; };
+		F1A4D89824C92C36003A6031 /* ABTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTools.h; sourceTree = "<group>"; };
+		F1A4D89924C92C36003A6031 /* ABTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTools.m; sourceTree = "<group>"; };
 		F1BCCED02478C1E8005B94D4 /* ABMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQ.h; sourceTree = "<group>"; };
 		F1BCCED12478C1E8005B94D4 /* ABMQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQ.m; sourceTree = "<group>"; };
 		F1EADCCC24873E4000B17B1A /* ABWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocket.h; sourceTree = "<group>"; };
@@ -273,6 +279,8 @@
 		F14C35AB24751CB60060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1A4D89824C92C36003A6031 /* ABTools.h */,
+				F1A4D89924C92C36003A6031 /* ABTools.m */,
 				F11F7BFF24BFDD2500DB96B3 /* WOCrashProtector */,
 				F14250692497469A003E83D8 /* ABWebSocket */,
 				F136DD192479150200412394 /* ABMQ */,
@@ -294,6 +302,8 @@
 				F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */,
 				F16CBB3C24AE109000CA6C18 /* ABAudio.h */,
 				F16CBB3D24AE109000CA6C18 /* ABAudio.m */,
+				F1A4D88F24C7E1BA003A6031 /* ABTimer.h */,
+				F1A4D89024C7E1BA003A6031 /* ABTimer.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -425,6 +435,7 @@
 				F16CBB3E24AE109000CA6C18 /* ABAudio.m in Sources */,
 				F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */,
 				F16CBB1D24ADE90B00CA6C18 /* ABIteration.m in Sources */,
+				F1A4D89124C7E1BA003A6031 /* ABTimer.m in Sources */,
 				F11F7C2C24BFDD2600DB96B3 /* NSDictionary+WOCrash.m in Sources */,
 				F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */,
 				F11F7C2B24BFDD2600DB96B3 /* NSMutableString+WOCrash.m in Sources */,
@@ -433,6 +444,7 @@
 				F14C35D024752D4A0060D435 /* ABNetConfiguration.m in Sources */,
 				F11F7C2124BFDD2600DB96B3 /* NSObject+SelectorCrash.m in Sources */,
 				F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */,
+				F1A4D89A24C92C36003A6031 /* ABTools.m in Sources */,
 				F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */,
 				F14C35C524751CB70060D435 /* ABNet.m in Sources */,
 				F14C35CB24751CB70060D435 /* ABDevice.m in Sources */,

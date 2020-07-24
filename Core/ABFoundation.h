@@ -20,4 +20,7 @@
 #import "ABWebSocket.h"
 #import "ABIteration.h"
 #import "ABAudio.h"
+#import "ABDevice.h"
+#import "ABTimer.h"
+#import "ABTools.h"
 #endif /* ABFoundation_h */

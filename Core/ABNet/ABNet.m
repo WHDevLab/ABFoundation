@@ -8,6 +8,8 @@
 
 #import "ABNet.h"
 #import "ABNetQuene.h"
+#import "AFNetworking.h"
+#import "ABNetConfiguration.h"
 @interface ABNet ()<INetData>
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<ABNetPluginType>> *patterns;
 @property (nonatomic, strong) ABNetQuene *netQuene;
@@ -120,4 +122,29 @@
     }
 }
 
+- (void)uploadWithURL:(NSString *)url image:(UIImage *)image success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
+    NSDictionary *headers = [[ABNetConfiguration shared].provider headers:@"/"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",@"text/html",
+
+                                                            @"image/jpeg",
+
+                                                            @"image/png",
+
+                                                            @"application/octet-stream",
+
+                                                            @"text/json",
+
+                                                            nil];
+     [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    [manager POST:url parameters:nil headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *fileData = UIImageJPEGRepresentation(image, 0.5);
+        // 设置上传图片的名字
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
+        [formData appendPartWithFileData:fileData name:@"avater" fileName:fileName mimeType:@"image/png"];
+    } progress:nil success:success failure:failure];
+}
 @end
