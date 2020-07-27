@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *msgKey;
 @property (nonatomic, strong) NSString *dataKey;
 @property (nonatomic, assign) BOOL isDebugLog;
+@property (nonatomic, assign) CGFloat timeoutInterval;
 
 - (NSString *)host:(NSString *)uri;
 - (NSDictionary *)headers:(NSString *)uri;

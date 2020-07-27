@@ -29,6 +29,7 @@
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
         // 申明contentType
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",nil];
+        _manager.requestSerializer.timeoutInterval = [ABNetConfiguration shared].provider.timeoutInterval;
         self.isFree = true;
     }
     return self;
