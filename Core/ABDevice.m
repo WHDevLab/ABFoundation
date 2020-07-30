@@ -68,4 +68,8 @@
         [[UIApplication sharedApplication] openURL:url];
     }
 }
+
++ (CGFloat)pixelWidth:(CGFloat)w {
+    return ([UIScreen mainScreen].bounds.size.width/375.0)*w;
+}
 @end

@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)gotoAppSetting;
 
++ (CGFloat)pixelWidth:(CGFloat)w;
+
 @end
 
 NS_ASSUME_NONNULL_END

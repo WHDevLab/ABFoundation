@@ -147,4 +147,9 @@
         [formData appendPartWithFileData:fileData name:@"avater" fileName:fileName mimeType:@"image/png"];
     } progress:nil success:success failure:failure];
 }
+
++ (BOOL)isNetReachable {
+    return [AFNetworkReachabilityManager manager].reachable;
+}
+
 @end

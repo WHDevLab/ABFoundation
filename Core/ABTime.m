@@ -103,8 +103,7 @@
     if (days < 2) {
         return @"昨天";
     }
-    return @"";
-//    return [self timestampToTime:timestamp];
+    return [ABTime timestampToTime:timestamp format:nil];
 }
 
 //+ (NSString *) compareCurrentTime:(NSString *)str
