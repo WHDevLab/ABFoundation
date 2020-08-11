@@ -152,4 +152,7 @@
     return [AFNetworkReachabilityManager manager].reachable;
 }
 
+- (void)uploadObject:(ABNetUploadRequest *)request {
+    
+}
 @end

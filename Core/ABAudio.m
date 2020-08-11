@@ -21,7 +21,7 @@
     return instance;
 }
 - (void)playBundleFileWithName:(NSString *)name {
-//    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
     if (path == nil) {
         return;

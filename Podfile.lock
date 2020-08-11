@@ -14,21 +14,25 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.6.4)
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaAsyncSocket
   - SocketRocket
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - CocoaAsyncSocket
     - SocketRocket
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: 547bb9cb72c0765cab2cb7e89385eb1dcf0377b7
+PODFILE CHECKSUM: 5c9f65cb8e8ef2496453d84819191d7c3504c8db
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

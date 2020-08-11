@@ -10,7 +10,6 @@
 
 @implementation ABNumber
 + (double)numberFromPercentString:(NSString *)percentStr tt:(double)tt {
-    
     if ([percentStr hasSuffix:@"%"]) {
         NSString *value = [percentStr stringByReplacingOccurrencesOfString:@"%" withString:@""];
         return ([value floatValue]/100)*tt;

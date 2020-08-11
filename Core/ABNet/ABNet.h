@@ -10,7 +10,6 @@
 #import "ABNetRequest.h"
 #import "ABNetPlugin.h"
 NS_ASSUME_NONNULL_BEGIN
-
 @interface ABNet : NSObject
 + (ABNet *)shared;
 @property (nonatomic, strong) id<ABNetPluginType> errorHandle;
@@ -21,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)uploadWithURL:(NSString *)url image:(UIImage *)image success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
 
 + (BOOL)isNetReachable;
+- (void)uploadObject:(ABNetUploadRequest *)request;
 @end
 
 NS_ASSUME_NONNULL_END

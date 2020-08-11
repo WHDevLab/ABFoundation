@@ -29,6 +29,10 @@ typedef enum : NSUInteger {
     ABNetRequestStatusTombstone
 }ABNetRequestStatus;
 
+@interface ABNetUploadRequest : NSObject
+
+@end
+
 @interface ABNetRequest : NSObject
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) NSString *method;

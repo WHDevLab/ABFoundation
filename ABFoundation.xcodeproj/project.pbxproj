@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E145FFFB77B9DCC147D29CC4 /* libPods-ABFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */; };
 		F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F11682FB24A0B540004DD6B8 /* ABNumber.m */; };
+		F11AA4FD24D424C100FCFE18 /* ABTCPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AA4FC24D424C100FCFE18 /* ABTCPSessionManager.m */; };
 		F11F7C1F24BFDD2600DB96B3 /* NSObject+KVOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0224BFDD2500DB96B3 /* NSObject+KVOCrash.m */; };
 		F11F7C2024BFDD2600DB96B3 /* NSTimer+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0324BFDD2500DB96B3 /* NSTimer+Crash.m */; };
 		F11F7C2124BFDD2600DB96B3 /* NSObject+SelectorCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C0424BFDD2500DB96B3 /* NSObject+SelectorCrash.m */; };
@@ -58,6 +59,8 @@
 		AD883BA52C164C02A2564963 /* libPods-ABFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11682FA24A0B540004DD6B8 /* ABNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNumber.h; sourceTree = "<group>"; };
 		F11682FB24A0B540004DD6B8 /* ABNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNumber.m; sourceTree = "<group>"; };
+		F11AA4FB24D424C100FCFE18 /* ABTCPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTCPSessionManager.h; sourceTree = "<group>"; };
+		F11AA4FC24D424C100FCFE18 /* ABTCPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTCPSessionManager.m; sourceTree = "<group>"; };
 		F11F7C0024BFDD2500DB96B3 /* WOCrashLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOCrashLog.h; sourceTree = "<group>"; };
 		F11F7C0124BFDD2500DB96B3 /* NSObject+NSNotificationCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSNotificationCrash.h"; sourceTree = "<group>"; };
 		F11F7C0224BFDD2500DB96B3 /* NSObject+KVOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOCrash.m"; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 				F16CBB3D24AE109000CA6C18 /* ABAudio.m */,
 				F1A4D88F24C7E1BA003A6031 /* ABTimer.h */,
 				F1A4D89024C7E1BA003A6031 /* ABTimer.m */,
+				F11AA4FB24D424C100FCFE18 /* ABTCPSessionManager.h */,
+				F11AA4FC24D424C100FCFE18 /* ABTCPSessionManager.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -462,6 +467,7 @@
 				F11F7C2924BFDD2600DB96B3 /* NSAttributedString+WOCrash.m in Sources */,
 				F14C35A52475185E0060D435 /* main.m in Sources */,
 				F11F7C2424BFDD2600DB96B3 /* WOCrashLog.m in Sources */,
+				F11AA4FD24D424C100FCFE18 /* ABTCPSessionManager.m in Sources */,
 				F11F7C2624BFDD2600DB96B3 /* NSString+WOCrash.m in Sources */,
 				F11F7C2724BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.m in Sources */,
 				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,

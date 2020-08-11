@@ -9,9 +9,13 @@
 #import "ABNetWorker.h"
 #import <AFNetworking/AFNetworking.h>
 #import "ABNetConfiguration.h"
+#import "IMService.h"
+#import "NSDictionary+AB.h"
 @interface ABNetWorker ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) ABNetRequest *req;
+
+@property (nonatomic, strong) IMService *service;
 @end
 @implementation ABNetWorker
 - (instancetype)init
@@ -37,8 +41,43 @@
 - (void)put:(ABNetRequest *)request {
     self.isFree = false;
     self.req = request;
-    [self doRequest:self.req];
+    if ([request.uri isEqualToString:@"/banner_lixxst"]) {
+        [self doTCPRequest:self.req];
+    }else{
+        [self doRequest:request];
+    }
+    
 }
+
+- (void)doTCPRequest:(ABNetRequest *)request {
+    
+    NSDictionary *headers = request.headers;
+    self.service = [[IMService alloc] init];
+//    service.host = [[request.host componentsSeparatedByString:@":"][0]];
+    self.service.host = @"129.211.114.135";
+    self.service.port = 23001;
+//    service.port = [[request.host componentsSeparatedByString:@":"][1] intValue];
+    self.service.deviceID = headers[@"uid"];
+    self.service.token = headers[@"token"];
+    [self.service start];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        RoomMessage *mm = [[RoomMessage alloc] init];
+        mm.sender = 1;
+        mm.receiver = 2;
+        mm.content = [@{@"cmd":@"login", @"header":headers, @"body":@{}} toJSONString];
+        [self.service sendRoomMessage:mm];
+
+    });
+    
+    
+//    service.host = [Stack shared].game_wsurl;
+//    service.port = [Stack shared].game_tcpport;
+//    service.heartbeatHZ = 30;
+//    service.deviceID = [Service shared].account.gmuid;
+//    service.token = [Service shared].account.gmtoken;
+}
+
 
 - (void)doRequest:(ABNetRequest *)request {
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:request.headers];
@@ -128,6 +167,7 @@
         [string appendString:[NSString stringWithFormat:@"**Method:%@\n", request.method]];
         [string appendString:[NSString stringWithFormat:@"**Headers:%@\n", request.headers]];
         [string appendString:[NSString stringWithFormat:@"**Params:%@\n", request.params]];
+        [string appendString:[NSString stringWithFormat:@"**RealParams:%@\n", request.realParams]];
         [string appendString:[NSString stringWithFormat:@"**Reason:%@\n", error.message]];
         [string appendString:[NSString stringWithFormat:@"**ReasonCode:%li\n", (long)error.code]];
 //        [string appendString:[NSString stringWithFormat:@"**ReasonObject:%@\n", responseObject]];
