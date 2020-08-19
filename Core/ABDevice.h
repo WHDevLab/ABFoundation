@@ -15,11 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)deviceTokenStringFromData:(NSData *)data;
 + (BOOL)isNotchScreen;
 
-+ (BOOL)isAvailableCamera;
++ (BOOL)isAvailableCamera; //相机权限
++ (BOOL)isAvailableRecord; //麦克风权限(调用会弹出授权框)
++ (BOOL)isAvailablePhoto; //相册权限
++ (BOOL)isAvailableNet; //联网权限
 
 + (void)gotoAppSetting;
 
 + (CGFloat)pixelWidth:(CGFloat)w;
+
++ (CGFloat)safeHeight;
+
 
 @end
 

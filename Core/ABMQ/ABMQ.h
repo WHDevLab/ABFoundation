@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)subscribe:(id<IABMQSubscribe>)obj channel:(NSString *)channel autoAck:(BOOL)autoAck;
 - (void)subscribe:(id<IABMQSubscribe>)obj channels:(NSArray<NSString *> *)channels autoAck:(BOOL)autoAck;
 - (void)publish:(id)message channel:(NSString *)channel;
+- (void)unsubscribe:(id<IABMQSubscribe>)obj channel:(NSString *)channel;
+- (void)unsubscribe:(id<IABMQSubscribe>)obj;
 - (void)ack:(id<IABMQSubscribe>)obj;
 @end
 

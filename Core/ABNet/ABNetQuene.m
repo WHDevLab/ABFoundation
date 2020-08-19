@@ -7,7 +7,9 @@
 //
 
 #import "ABNetQuene.h"
-@interface ABNetQuene ()<ABNetWorkerDelegate>
+@interface ABNetQuene ()<ABNetWorkerDelegate>{
+    NSRecursiveLock* _dataLock;
+}
 @property (nonatomic, strong) NSMutableArray<ABNetRequest *> *stack;
 @property (nonatomic, strong) NSMutableArray<ABNetWorker *> *ABNetWorkers;
 @property (nonatomic, strong) NSMutableDictionary<NSString*, NSURLSessionTask *> *taskMap;
@@ -51,10 +53,11 @@
     //取消重复请求
 //    [self.taskMap[request.identifier] cancel];
 //    [self.taskMap removeObjectForKey:request.identifier];
-    
+    [_dataLock lock];
     //先进后出，照顾用户最新的操作
     [self.stack insertObject:request atIndex:0];
     [self releaseExpire];
+    [_dataLock unlock];
     [self consumQuene];
 
 }
@@ -96,12 +99,14 @@
 }
 
 - (void)clean {
+    [_dataLock lock];
     for (ABNetRequest *request in self.stack) {
         if (request.target == nil && request.isCancelWhenTargetDealloc) {
             [self.taskMap[request.identifier] cancel];
             [self.taskMap removeObjectForKey:request.identifier];
         }
     }
+    [_dataLock unlock];
 }
 
 - (void)netWorkerBegin:(ABNetWorker *)ABNetWorker request:(ABNetRequest *)request task:(NSURLSessionTask *)task {

@@ -9,6 +9,9 @@
 #import "ABMQ.h"
 #import "ABMQSubscibe.h"
 @interface ABMQ ()
+{
+    NSRecursiveLock *_dataLock;
+}
 @property (nonatomic, strong) NSMutableArray *subscribeObjs;
 @end
 @implementation ABMQ
@@ -99,14 +102,13 @@
 
 - (void)messageDistribute {
     [self clearInvalid];
-    for (ABMQSubscibe *subscribe in self.subscribeObjs) {
+    [self.subscribeObjs enumerateObjectsUsingBlock:^(ABMQSubscibe *subscribe, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary *message = [subscribe next];
         if (message != nil) {
             [(id<IABMQSubscribe>)subscribe.obj abmq:self onReceiveMessage:message[@"data"] channel:message[@"channel"]];
             [subscribe free:false];
         }
-        
-    }
+    }];
 }
 
 
@@ -116,7 +118,6 @@
             [subscribe pop];
         }
     }];
-    
     [self messageDistribute];
 }
 

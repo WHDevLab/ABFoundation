@@ -37,7 +37,9 @@
 - (void)free:(BOOL)must {
     if (self.autoAck || must) {
         self.isFree = true;
+        [self.quene removeLastObject];
     }
+
 }
 
 - (void)append:(id)message channel:(NSString *)channel {

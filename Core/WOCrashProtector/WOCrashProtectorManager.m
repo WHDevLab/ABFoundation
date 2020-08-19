@@ -84,7 +84,7 @@
     [NSObject wo_enableKVOProtector];
     [NSObject wo_enableNotificationProtector]; // 可能会有性能问题，dealloc里面加了判断，系统的每个对象dealloc时都会调用
     
-    [NSTimer wo_enableTimerProtector];
+//    [NSTimer wo_enableTimerProtector];
     [NSArray wo_enableArrayProtector];
     [NSMutableArray wo_enableMutableArrayProtector];
     

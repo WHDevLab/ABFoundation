@@ -9,6 +9,9 @@
 #import "ABDevice.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
+#import "ABDefines.h"
+@import CoreTelephony;
 @implementation ABDevice
 - (NSString *)appVersion {
     return [UIDevice currentDevice].systemVersion;
@@ -62,6 +65,47 @@
     return false;
 }
 
++ (BOOL)isAvailableRecord{
+    AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
+            [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
+                if (granted) {//用户选择允许
+                    return true;
+                } else {//用户选择不允许
+                    return false;
+                }
+            }];
+        }
+    } else if(videoAuthStatus == AVAuthorizationStatusRestricted || videoAuthStatus == AVAuthorizationStatusDenied) {
+        return false;
+    } else{
+        return true;
+    }
+    return false;
+}
+
++ (BOOL)isAvailablePhoto {
+    return true;
+//    __weak __typeof(self)weakSelf = self;
+//    PHAuthorizationStatus ss = PHAuthorizationStatusAuthorized;
+//    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+//        ss = status;
+//    }];
+//
+//    return status == PHAuthorizationStatusAuthorized;
+}
+
++ (BOOL)isAvailableNet {
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    CTCellularDataRestrictedState state = cellularData.restrictedState;
+    if (state == kCTCellularDataRestricted) {
+        return true;
+    }
+    return false;
+}
+
 + (void)gotoAppSetting {
     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
@@ -71,5 +115,12 @@
 
 + (CGFloat)pixelWidth:(CGFloat)w {
     return ([UIScreen mainScreen].bounds.size.width/375.0)*w;
+}
+
++ (CGFloat)safeHeight {
+    if (IS_iPhoneX) {
+        return 34;
+    }
+    return 0;
 }
 @end
