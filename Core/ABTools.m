@@ -67,43 +67,63 @@
 }
 
 + (BOOL)isValidBankCardNo:(NSString *)cardNo{
-    int oddsum = 0;     //奇数求和
-    int evensum = 0;    //偶数求和
-    int allsum = 0;
-    int cardNoLength = (int)[cardNo length];
-    int lastNum = [[cardNo substringFromIndex:cardNoLength-1] intValue];
-   
-    cardNo = [cardNo substringToIndex:cardNoLength -1];
-    for (int i = cardNoLength-1; i>=1;i--) {
-        NSString *tmpString = [cardNo substringWithRange:NSMakeRange(i-1,1)];
-        int tmpVal = [tmpString intValue];
-        if (cardNoLength % 2 ==1) {
-            if((i % 2) == 0){
-                tmpVal *= 2;
-                if(tmpVal>=10)
-                    tmpVal -= 9;
-                evensum += tmpVal;
+    if (cardNo.length == 0) {
+        return false;
+    }
+    NSString * lastNum = [[cardNo substringFromIndex:(cardNo.length-1)] copy];//取出最后一位
+    NSString * forwardNum = [[cardNo substringToIndex:(cardNo.length -1)] copy];//前15或18位
+    
+    NSMutableArray * forwardArr = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i=0; i<forwardNum.length; i++) {
+        NSString * subStr = [forwardNum substringWithRange:NSMakeRange(i, 1)];
+        [forwardArr addObject:subStr];
+    }
+    
+    NSMutableArray * forwardDescArr = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = (int)(forwardArr.count-1); i> -1; i--) {//前15位或者前18位倒序存进数组
+        [forwardDescArr addObject:forwardArr[i]];
+    }
+    
+    NSMutableArray * arrOddNum = [[NSMutableArray alloc] initWithCapacity:0];//奇数位*2的积 < 9
+    NSMutableArray * arrOddNum2 = [[NSMutableArray alloc] initWithCapacity:0];//奇数位*2的积 > 9
+    NSMutableArray * arrEvenNum = [[NSMutableArray alloc] initWithCapacity:0];//偶数位数组
+    
+    for (int i=0; i< forwardDescArr.count; i++) {
+        NSInteger num = [forwardDescArr[i] intValue];
+        if (i%2) {//偶数位
+            [arrEvenNum addObject:[NSNumber numberWithInteger:num]];
+        }else{//奇数位
+            if (num * 2 < 9) {
+                [arrOddNum addObject:[NSNumber numberWithInteger:num * 2]];
             }else{
-                oddsum += tmpVal;
-            }
-        }else{
-            if((i % 2) == 1){
-                tmpVal *= 2;
-                if(tmpVal>=10)
-                    tmpVal -= 9;
-                evensum += tmpVal;
-            }else{
-                oddsum += tmpVal;
+                NSInteger decadeNum = (num * 2) / 10;
+                NSInteger unitNum = (num * 2) % 10;
+                [arrOddNum2 addObject:[NSNumber numberWithInteger:unitNum]];
+                [arrOddNum2 addObject:[NSNumber numberWithInteger:decadeNum]];
             }
         }
     }
-   
-    allsum = oddsum + evensum;
-    allsum += lastNum;
-    if((allsum % 10) == 0)
-        return YES;
-    else
-        return NO;
+    
+    __block  NSInteger sumOddNumTotal = 0;
+    [arrOddNum enumerateObjectsUsingBlock:^(NSNumber * obj, NSUInteger idx, BOOL *stop) {
+        sumOddNumTotal += [obj integerValue];
+    }];
+    
+    __block NSInteger sumOddNum2Total = 0;
+    [arrOddNum2 enumerateObjectsUsingBlock:^(NSNumber * obj, NSUInteger idx, BOOL *stop) {
+        sumOddNum2Total += [obj integerValue];
+    }];
+    
+    __block NSInteger sumEvenNumTotal =0 ;
+    [arrEvenNum enumerateObjectsUsingBlock:^(NSNumber * obj, NSUInteger idx, BOOL *stop) {
+        sumEvenNumTotal += [obj integerValue];
+    }];
+    
+    NSInteger lastNumber = [lastNum integerValue];
+    
+    NSInteger luhmTotal = lastNumber + sumEvenNumTotal + sumOddNum2Total + sumOddNumTotal;
+    
+    return (luhmTotal%10 ==0)?YES:NO;
 }
 
 
@@ -177,5 +197,18 @@
     return CardNumberStr;
 }
 
++ (NSString *)convertNumberToKW:(NSInteger)kw {
+    if (kw > 10000) {
+        return [NSString stringWithFormat:@"%.1fw", kw/10000.0];
+    }
+    
+    return [NSString stringWithFormat:@"%i", kw];
+}
 
+
++ (BOOL)isValidPassword:(NSString *)password {
+    NSString *newPattern = @"^(?=.*)(?=.*[a-z])(?=.*[~!@#$%^&*:;,.=?$\x22]).{8,16}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", newPattern];
+    return [pred evaluateWithObject:password];
+}
 @end

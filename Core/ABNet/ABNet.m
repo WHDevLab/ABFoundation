@@ -30,6 +30,7 @@
     if (self) {
         self.netQuene = [ABNetQuene shared];
         self.patterns = [[NSMutableDictionary alloc] init];
+        self.plugins = [[NSArray alloc] init];
     }
     return self;
 }
@@ -50,6 +51,11 @@
         
         if ([pl canSend:req]) {
             [self _realRequest:req];
+            
+            [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [obj willSend:request];
+            }];
+            
             if ([pl respondsToSelector:@selector(willSend:)]) {
                 [pl willSend:request];
             }
@@ -91,6 +97,11 @@
     if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
         [pl endSend:req];
     }
+    
+    [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj endSend:req];
+    }];
+    
     if (pl != nil && [pl respondsToSelector:@selector(process:response:)]) {
         NSDictionary *nObj = [pl process:req response:obj];
         [self onSuccess:req obj:nObj];
@@ -104,6 +115,11 @@
     if (self.errorHandle) {
         [self.errorHandle didReceiveError:req error:err];
     }
+    
+    [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj endSend:req];
+    }];
+    
     if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
         [pl endSend:req];
     }

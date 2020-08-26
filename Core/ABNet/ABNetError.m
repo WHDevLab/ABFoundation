@@ -30,7 +30,8 @@
 
 - (NSString *)des
 {
-    return [NSString stringWithFormat:@"code:%li;reason:%@", (long)self.code,self.message];
+    return [NSString stringWithFormat:@"%@(%li)", self.message, (long)self.code];
+//    return [NSString stringWithFormat:@"code:%li;reason:%@", (long)self.code,self.message];
 }
 
 - (BOOL)isNetReachable {

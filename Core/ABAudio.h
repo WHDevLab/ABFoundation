@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ABAudio : NSObject
 + (ABAudio *)shared;
+@property (nonatomic, assign) BOOL ismute;
+- (void)playBundleFileWithNames:(NSArray *)names;
+- (void)playBundleFileWithMultipleName:(NSString *)multipleName;
 - (void)playBundleFileWithName:(NSString *)name;
 @end
 

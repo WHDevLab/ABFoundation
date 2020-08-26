@@ -65,25 +65,27 @@
     return false;
 }
 
-+ (BOOL)isAvailableRecord{
++ (void)isAvailableRecord:(AvailableBlock)block{
     AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
     if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
             [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
-                if (granted) {//用户选择允许
-                    return true;
-                } else {//用户选择不允许
-                    return false;
-                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    block(granted);
+                });
+                
             }];
         }
     } else if(videoAuthStatus == AVAuthorizationStatusRestricted || videoAuthStatus == AVAuthorizationStatusDenied) {
-        return false;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block(false);
+        });
     } else{
-        return true;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block(true);
+        });
     }
-    return false;
 }
 
 + (BOOL)isAvailablePhoto {

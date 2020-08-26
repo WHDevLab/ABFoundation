@@ -11,11 +11,13 @@
 #import "ABNetConfiguration.h"
 #import "IMService.h"
 #import "NSDictionary+AB.h"
+#import <sys/utsname.h>//要导入头文件
 @interface ABNetWorker ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) ABNetRequest *req;
 
 @property (nonatomic, strong) IMService *service;
+@property (nonatomic, strong) NSString *osinfo;
 @end
 @implementation ABNetWorker
 - (instancetype)init
@@ -35,6 +37,15 @@
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",nil];
         _manager.requestSerializer.timeoutInterval = [ABNetConfiguration shared].provider.timeoutInterval;
         self.isFree = true;
+        
+        NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+        NSString *sysVersion = [UIDevice currentDevice].systemVersion;
+        
+        struct utsname systemInfo;
+        uname(&systemInfo);
+        NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+        self.osinfo = [NSString stringWithFormat:@"app_version=%@;platform=iOS;sys_version=%@;model=%@", appVersion, sysVersion, deviceModel];
+        
     }
     return self;
 }
@@ -82,6 +93,7 @@
 - (void)doRequest:(ABNetRequest *)request {
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:request.headers];
     [headers setValue:request.timestamp forKey:@"fk"];
+    [headers setValue:self.osinfo forKey:@"os"];
     NSString *method = [request.method lowercaseString];
 
     NSString *url = [NSString stringWithFormat:@"%@%@", request.host, request.realUri];

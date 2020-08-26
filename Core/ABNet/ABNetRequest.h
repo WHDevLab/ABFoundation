@@ -30,7 +30,9 @@ typedef enum : NSUInteger {
 }ABNetRequestStatus;
 
 @interface ABNetUploadRequest : NSObject
-
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *object;
+@property (nonatomic, strong) NSData *body;
 @end
 
 @interface ABNetRequest : NSObject

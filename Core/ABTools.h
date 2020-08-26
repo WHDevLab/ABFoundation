@@ -16,12 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isValidCarNo:(NSString*)carno;
 + (BOOL)isValidIdentityCardNo:(NSString *)cardno;
 + (BOOL)isValidBankCardNo:(NSString *)cardNo;
++ (BOOL)isValidPassword:(NSString *)password;
 
 + (NSString *)suppleZero:(NSInteger)n;
 //生成二维码
 + (UIImage *)generateQRCodeWithString:(NSString *)string Size:(CGFloat)size;
 + (UIImage *)getImageViewWithView:(UIView *)view;
 + (NSString *)returnBankCard:(NSString *)BankCardStr;
+
++ (NSString *)convertNumberToKW:(NSInteger)kw;
 
 @end
 
