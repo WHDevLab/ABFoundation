@@ -65,8 +65,8 @@
     NSDictionary *headers = request.headers;
     self.service = [[IMService alloc] init];
 //    service.host = [[request.host componentsSeparatedByString:@":"][0]];
-    self.service.host = @"119.28.78.169";
-    self.service.port = 23001;
+    self.service.host = @"";
+    self.service.port = 0;
 //    service.port = [[request.host componentsSeparatedByString:@":"][1] intValue];
     self.service.deviceID = headers[@"uid"];
     self.service.token = headers[@"token"];
