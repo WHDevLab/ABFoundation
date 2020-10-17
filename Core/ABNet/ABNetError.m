@@ -30,7 +30,7 @@
 
 - (NSString *)des
 {
-    return [NSString stringWithFormat:@"%@(%li)", self.message, (long)self.code];
+    return [NSString stringWithFormat:@"%@(%li)", self.message?self.message:@"服务器开小差了", (long)self.code];
 //    return [NSString stringWithFormat:@"code:%li;reason:%@", (long)self.code,self.message];
 }
 

@@ -53,6 +53,10 @@
     return self.codeKey;
 }
 
+- (BOOL)isTCPRequest:(ABNetRequest *)request {
+    return false;
+}
+
 @end
 
 @implementation ABNetConfiguration

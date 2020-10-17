@@ -44,7 +44,7 @@
         struct utsname systemInfo;
         uname(&systemInfo);
         NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-        self.osinfo = [NSString stringWithFormat:@"app_version=%@;platform=iOS;sys_version=%@;model=%@", appVersion, sysVersion, deviceModel];
+        self.osinfo = [NSString stringWithFormat:@"app=zhibo&app_version=%@;platform=ios;sys_version=%@;model=%@", appVersion, sysVersion, deviceModel];
         
     }
     return self;
@@ -52,12 +52,12 @@
 - (void)put:(ABNetRequest *)request {
     self.isFree = false;
     self.req = request;
-    if ([request.uri isEqualToString:@"/banner_lixxst"]) {
+    
+    if ([[ABNetConfiguration shared].provider isTCPRequest:request]) {
         [self doTCPRequest:self.req];
     }else{
         [self doRequest:request];
     }
-    
 }
 
 - (void)doTCPRequest:(ABNetRequest *)request {
@@ -65,8 +65,8 @@
     NSDictionary *headers = request.headers;
     self.service = [[IMService alloc] init];
 //    service.host = [[request.host componentsSeparatedByString:@":"][0]];
-    self.service.host = @"";
-    self.service.port = 0;
+    self.service.host = @"119.28.78.169";
+    self.service.port = 24430;
 //    service.port = [[request.host componentsSeparatedByString:@":"][1] intValue];
     self.service.deviceID = headers[@"uid"];
     self.service.token = headers[@"token"];
@@ -144,6 +144,7 @@
     
     NSInteger codeValue = [responseObject[codeKey] integerValue];
     NSString *msgValue = responseObject[msgKey];
+    request.msg = msgValue;
     
     if (codeValue == successCodeValue || responseObject[codeKey] == nil) {
         NSString *dataKey = [[ABNetConfiguration shared].provider dataKey:request];

@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)codeKey:(ABNetRequest *)request;
 - (NSString *)msgKey:(ABNetRequest *)request;
 - (NSString *)dataKey:(ABNetRequest *)request;
+- (BOOL)isTCPRequest:(ABNetRequest *)request;
 
 @end
 

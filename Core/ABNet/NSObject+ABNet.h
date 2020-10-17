@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fetchUri:(NSString *)uri params:(nullable NSDictionary *)params;
 - (void)fetchPostUri:(NSString *)uri params:(nullable NSDictionary *)params;
 - (void)fetchMethod:(NSString *)method host:(nullable NSString *)host uri:(NSString *)uri params:(nullable NSDictionary *)params isCancelWhenDealloc:(BOOL)isCancelWhenDealloc cachePolicy:(ABNetRequestCachePolicy)cachePolicy cacheKey:(NSString *)cacheKey;
+- (BOOL)isEmpty;
 @end
 
 NS_ASSUME_NONNULL_END

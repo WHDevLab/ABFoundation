@@ -56,4 +56,10 @@
     [[ABNet shared] push:request];
 }
 
+- (BOOL)isEmpty {
+    if (self == nil || [self isKindOfClass:[NSNull class]]) {
+        return true;
+    }
+    return false;
+}
 @end

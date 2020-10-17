@@ -26,7 +26,8 @@ typedef enum : NSUInteger {
 
 typedef enum : NSUInteger {
     ABNetRequestStatusNormal,
-    ABNetRequestStatusTombstone
+    ABNetRequestStatusTombstone,
+    ABNetRequestStatusFinish,
 }ABNetRequestStatus;
 
 @interface ABNetUploadRequest : NSObject
@@ -50,6 +51,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic) ABNetRequestStatus status;
+@property (nonatomic) NSString *msg;
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;
