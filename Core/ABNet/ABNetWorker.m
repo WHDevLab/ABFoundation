@@ -32,7 +32,10 @@
             [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
         }
         //申明返回的结果是json类型
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        AFJSONResponseSerializer *ser = [AFJSONResponseSerializer serializer];
+        ser.removesKeysWithNullValues = true;
+        _manager.responseSerializer = ser;
+        
         // 申明contentType
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",nil];
         _manager.requestSerializer.timeoutInterval = [ABNetConfiguration shared].provider.timeoutInterval;
@@ -153,6 +156,7 @@
         }else{
             NSLog(@"%@", responseObject[@"info"]);
             NSDictionary *res = responseObject[dataKey];
+            
             if ([res isKindOfClass:[NSArray class]]) {
                 [self.delegate netWorkerFinish:self request:request responseObject:@{@"list":res}];
             }else{

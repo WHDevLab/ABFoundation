@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ABTools : NSObject
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)returnBankCard:(NSString *)BankCardStr;
 
 + (NSString *)convertNumberToKW:(NSInteger)kw;
-
++ (NSInteger)compareVersion2:(NSString *)v1 to:(NSString *)v2;
 @end
 
 NS_ASSUME_NONNULL_END

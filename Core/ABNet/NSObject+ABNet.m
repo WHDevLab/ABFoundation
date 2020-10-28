@@ -42,7 +42,7 @@
     
     request.params = params;
     request.method = method;
-    
+
     request.target = (id<INetData>)self;
     request.isCancelWhenTargetDealloc = isCancelWhenDealloc;
     
