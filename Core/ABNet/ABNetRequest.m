@@ -21,6 +21,8 @@
         self.timestamp = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
         self.creatTime = [[NSDate date] timeIntervalSince1970];
         self.status = ABNetRequestStatusNormal;
+        self.isShowLoading = true;
+        self.canSend = true;
     }
     return self;
 }

@@ -47,7 +47,7 @@
         struct utsname systemInfo;
         uname(&systemInfo);
         NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-        self.osinfo = [NSString stringWithFormat:@"app=zhibo&app_version=%@;platform=ios;sys_version=%@;model=%@", appVersion, sysVersion, deviceModel];
+        self.osinfo = [NSString stringWithFormat:@"app=zhibo;app_version=%@;platform=ios;sys_version=%@;model=%@", appVersion, sysVersion, deviceModel];
         
     }
     return self;
@@ -94,6 +94,7 @@
 
 
 - (void)doRequest:(ABNetRequest *)request {
+    NSLog(@"%@", request.uri);
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:request.headers];
     [headers setValue:request.timestamp forKey:@"fk"];
     [headers setValue:self.osinfo forKey:@"os"];

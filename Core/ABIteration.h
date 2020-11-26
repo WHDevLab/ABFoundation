@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)excludeKeys:(NSArray *)keys fromDictionary:(NSDictionary *)dic;
 
 + (NSArray *)filter:(NSArray *)list block:(BOOL (^)(NSMutableDictionary *dic))block;
++ (NSDictionary *)setAndReaplceKeyTo:(NSDictionary *)tdic with:(NSDictionary *)wdic;
 @end
 
 NS_ASSUME_NONNULL_END

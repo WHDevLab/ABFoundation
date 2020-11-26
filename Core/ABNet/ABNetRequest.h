@@ -54,6 +54,9 @@ typedef enum : NSUInteger {
 @property (nonatomic) NSString *msg;
 @property (nonatomic) ABNetRequestCachePolicy cachePolicy;
 @property (nonatomic, assign) NSInteger timeout;
+@property (nonatomic, assign) BOOL isShowLoading;
+@property (nonatomic, assign) BOOL isWaitingNet;
+@property (nonatomic, assign) BOOL canSend;
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;

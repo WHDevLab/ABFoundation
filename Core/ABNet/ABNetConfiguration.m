@@ -20,7 +20,7 @@
         self.contentType = @"application/json";
         
         self.isDebugLog = true;
-        self.timeoutInterval = 5.f;
+        self.timeoutInterval = 3.f;
     }
     return self;
 }

@@ -17,6 +17,10 @@
     return [UIDevice currentDevice].systemVersion;
 }
 
++ (NSString *)applicationVersion {
+    NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    return appVersion;
+}
 - (NSString *)deviceTokenStringFromData:(NSData *)deviceToken {
     if (@available(iOS 13.0, *)) {
         NSMutableString *deviceTokenString = [NSMutableString string];

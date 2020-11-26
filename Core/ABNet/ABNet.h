@@ -20,8 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)uploadWithURL:(NSString *)url image:(UIImage *)image success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
 
-+ (BOOL)isNetReachable;
+- (BOOL)isNetReachable;
 - (void)uploadObject:(ABNetUploadRequest *)request;
+
+- (void)startNetListen:(void (^)(BOOL isReachable))block;
 @end
 
 NS_ASSUME_NONNULL_END

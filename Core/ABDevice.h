@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^AvailableBlock)(BOOL isAvailable);
 @interface ABDevice : NSObject
 - (NSString *)appVersion;
++ (NSString *)applicationVersion;
 - (NSString *)deviceTokenStringFromData:(NSData *)data;
 + (BOOL)isNotchScreen;
 

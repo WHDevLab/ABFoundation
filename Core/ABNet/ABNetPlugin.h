@@ -9,6 +9,7 @@
 #ifndef ABNetPluginType_h
 #define ABNetPluginType_h
 #import "ABNetRequest.h"
+#import "ABNetError.h"
 @protocol ABNetPluginType <NSObject>
 @optional
 /// Called to modify a request before sending.
@@ -20,6 +21,8 @@
 /// Called immediately before a request is sent over the network (or stubbed).
 - (void)willSend:(ABNetRequest *)request;
 - (void)endSend:(ABNetRequest *)request;
+- (void)willSendRequest:(ABNetRequest *)request;
+- (void)completedRequest:(ABNetRequest *)request error:(nullable ABNetError *)error;
 /// Called to modify a result before completion.
 - (void)didReceive:(ABNetRequest *)request response:(NSDictionary *)response;
 

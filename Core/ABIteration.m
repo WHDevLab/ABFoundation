@@ -13,7 +13,10 @@
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (int i=0; i<list.count; i++) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:list[i]];
-        [arr addObject:block(dic, i)];
+        NSDictionary *dd = block(dic, i);
+        if (dd != nil) {
+            [arr addObject:dd];
+        }
     }
     return arr;
 }
@@ -92,6 +95,15 @@
     }
     
     return newList;
+}
+
++ (NSDictionary *)setAndReaplceKeyTo:(NSDictionary *)tdic with:(NSDictionary *)wdic {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:tdic];
+    NSArray *allKeys = [wdic allKeys];
+    for (NSString *key in allKeys) {
+        dic[key] = wdic[key];
+    }
+    return dic;
 }
 
 @end

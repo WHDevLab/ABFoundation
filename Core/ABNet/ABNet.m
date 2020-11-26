@@ -10,9 +10,12 @@
 #import "ABNetQuene.h"
 #import "AFNetworking.h"
 #import "ABNetConfiguration.h"
+#import "ABUITips.h"
+#import <AFNetworking/AFNetworking.h>
 @interface ABNet ()<INetData>
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<ABNetPluginType>> *patterns;
 @property (nonatomic, strong) ABNetQuene *netQuene;
+@property (nonatomic, assign) BOOL isReachable;
 @end
 @implementation ABNet
 + (ABNet *)shared {
@@ -53,7 +56,15 @@
             [self _realRequest:req];
             
             [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [obj willSend:request];
+                if ([obj respondsToSelector:@selector(willSend:)]) {
+                    [obj willSend:request];
+                }
+            }];
+            
+            [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj respondsToSelector:@selector(completedRequest:)]) {
+                    [obj willSendRequest:request];
+                }
             }];
             
             if ([pl respondsToSelector:@selector(willSend:)]) {
@@ -117,7 +128,15 @@
     }
     
     [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj endSend:req];
+        if ([obj respondsToSelector:@selector(endSend:)]) {
+            [obj endSend:req];
+        }
+    }];
+    
+    [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj respondsToSelector:@selector(completedRequest:error:)]) {
+            [obj completedRequest:req error:err];
+        }
     }];
     
     if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
@@ -164,11 +183,26 @@
     } progress:nil success:success failure:failure];
 }
 
-+ (BOOL)isNetReachable {
-    return [AFNetworkReachabilityManager manager].reachable;
+- (BOOL)isNetReachable {
+    return self.isReachable;
 }
 
 - (void)uploadObject:(ABNetUploadRequest *)request {
     
 }
+
+- (void)startNetListen:(void (^)(BOOL isReachable))block {
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status != AFNetworkReachabilityStatusNotReachable) {
+            self.isReachable = true;
+            block(true);
+        }else{
+            self.isReachable = false;
+            block(false);
+        }
+    }];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
 @end

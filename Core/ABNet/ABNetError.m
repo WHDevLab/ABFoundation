@@ -8,12 +8,17 @@
 
 #import "ABNetError.h"
 #import "ABNetConfiguration.h"
+#import "ABNet.h"
 @implementation ABNetError
 - (ABNetError *)initWithError:(NSError *)error {
     self = [super init];
     if (self) {
         self.code = error.code;
-        self.message = @"服务器开小差了";
+        if ([[ABNet shared] isNetReachable]) {
+            self.message = @"服务器开小差了";
+        }else{
+            self.message = @"网络不可用，请检查网络";
+        }
     }
     return self;
 }
