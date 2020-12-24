@@ -8,11 +8,44 @@
 
 #import "ABNetRequest.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import "ABNetConfiguration.h"
 
 @interface ABNetRequest ()
 @property (nonatomic, assign) NSTimeInterval creatTime;
 @end
 @implementation ABNetRequest
++ (ABNetRequest *)getUri:(NSString *)uri params:(NSDictionary *)params {
+    ABNetRequest *request = [[ABNetRequest alloc] init];
+    if ([uri hasPrefix:@"http"]) {
+        NSURL *uu = [NSURL URLWithString:uri];
+        if (uu.port == nil) {
+            request.host = [NSString stringWithFormat:@"%@://%@", uu.scheme,uu.host];
+        }else{
+            request.host = [NSString stringWithFormat:@"%@://%@:%@", uu.scheme,uu.host, uu.port];
+        }
+        
+        request.uri = [NSURL URLWithString:uri].path;
+    }else {
+        request.host = [[ABNetConfiguration shared].provider host:uri];
+        request.uri = uri;
+    }
+    request.headers = [[ABNetConfiguration shared].provider headers:uri];
+    
+    request.params = params;
+    request.method = @"get";
+
+    request.target = (id<INetData>)self;
+    request.isCancelWhenTargetDealloc = true;
+    
+    if ([uri hasPrefix:@"http://"] || [uri hasPrefix:@"https://"]) {
+        NSURL *url = [NSURL URLWithString:uri];
+        request.host = [NSString stringWithFormat:@"%@://%@:%@", url.scheme, url.host, url.port];
+        request.uri = url.path;
+    }
+    
+    return request;
+}
+
 - (instancetype)init
 {
     self = [super init];

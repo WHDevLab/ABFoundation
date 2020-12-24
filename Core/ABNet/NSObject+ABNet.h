@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (ABNet)
+- (void)fetchRequest:(ABNetRequest *)request;
 - (void)fetchUri:(NSString *)uri host:(NSString *)host params:(nullable NSDictionary *)params;
 - (void)fetchUri:(NSString *)uri params:(nullable NSDictionary *)params;
 - (void)fetchPostUri:(NSString *)uri params:(nullable NSDictionary *)params;

@@ -31,15 +31,15 @@
         } else {
             [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
         }
-        //申明返回的结果是json类型
+
+        // 申明contentType
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/plain",nil];
+        _manager.requestSerializer.timeoutInterval = [ABNetConfiguration shared].provider.timeoutInterval;
+        self.isFree = true;
+        
         AFJSONResponseSerializer *ser = [AFJSONResponseSerializer serializer];
         ser.removesKeysWithNullValues = true;
         _manager.responseSerializer = ser;
-        
-        // 申明contentType
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",nil];
-        _manager.requestSerializer.timeoutInterval = [ABNetConfiguration shared].provider.timeoutInterval;
-        self.isFree = true;
         
         NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         NSString *sysVersion = [UIDevice currentDevice].systemVersion;
@@ -103,13 +103,19 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", request.host, request.realUri];
     NSDictionary *params = request.realParams;
 
-
     __weak typeof(self) weakSelf = self;
     if ([method isEqualToString:@"get"]) {
         NSURLSessionDataTask *task = [self.manager GET:url parameters:params headers:headers progress:^(NSProgress * _Nonnull downloadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             __strong typeof(self) strongSelf = weakSelf;
             [strongSelf finishRequest:request responseObject:responseObject];
+//            if ([responseObject isKindOfClass:[NSData class]]) {
+//                NSDictionary *dd = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//                [strongSelf finishRequest:request responseObject:dd];
+//            }else{
+//                [strongSelf finishRequest:request responseObject:responseObject];
+//            }
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
 

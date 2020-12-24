@@ -44,9 +44,17 @@
 
 // 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒
 + (NSString *)timestampToTime:(NSString *)timestamp format:(nullable NSString *)format{
-    NSTimeInterval time = [timestamp doubleValue];
-    if (timestamp.length > 10) {
-        time = [timestamp doubleValue]/1000;
+    NSString *timestampStr = timestamp;
+    if ([format isKindOfClass:[NSNumber class]]) {
+        timestampStr = [NSString stringWithFormat:@"%@", timestamp];
+    }
+    if (timestampStr.length != 10 && timestampStr.length != 13) {
+        return timestampStr;
+    }
+    
+    NSTimeInterval time = [timestampStr doubleValue];
+    if (timestampStr.length > 10) {
+        time = [timestampStr doubleValue]/1000;
     }
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

@@ -26,6 +26,7 @@
 		F11F7C2B24BFDD2600DB96B3 /* NSMutableString+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1824BFDD2600DB96B3 /* NSMutableString+WOCrash.m */; };
 		F11F7C2C24BFDD2600DB96B3 /* NSDictionary+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1B24BFDD2600DB96B3 /* NSDictionary+WOCrash.m */; };
 		F11F7C2D24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F11F7C1C24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m */; };
+		F1287E75258462EB00D9574D /* ABRedis.m in Sources */ = {isa = PBXBuildFile; fileRef = F1287E74258462EB00D9574D /* ABRedis.m */; };
 		F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */ = {isa = PBXBuildFile; fileRef = F136DD1B24791F2200412394 /* ABMQSubscibe.m */; };
 		F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F142506B24974760003E83D8 /* ABWebSocketConfiguration.m */; };
 		F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F14250742499EF5F003E83D8 /* ABFileManager.m */; };
@@ -51,7 +52,10 @@
 		F196667F247B9B57008590F8 /* ABWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F196667E247B9B57008590F8 /* ABWeakObject.m */; };
 		F1A4D89124C7E1BA003A6031 /* ABTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D89024C7E1BA003A6031 /* ABTimer.m */; };
 		F1A4D89A24C92C36003A6031 /* ABTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D89924C92C36003A6031 /* ABTools.m */; };
+		F1B92FC825932C770023382F /* ABNetUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B92FC725932C770023382F /* ABNetUploadRequest.m */; };
+		F1B92FCC25932C910023382F /* ABNetUploadObjectResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B92FCB25932C910023382F /* ABNetUploadObjectResult.m */; };
 		F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCED12478C1E8005B94D4 /* ABMQ.m */; };
+		F1CAF7BC258C4B9E00CD4D54 /* ABRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CAF7BB258C4B9E00CD4D54 /* ABRouter.m */; };
 		F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EADCCD24873E4000B17B1A /* ABWebSocket.m */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +98,8 @@
 		F11F7C1C24BFDD2600DB96B3 /* NSMutableArray+WOCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+WOCrash.m"; sourceTree = "<group>"; };
 		F11F7C1D24BFDD2600DB96B3 /* NSObject+SelectorCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorCrash.h"; sourceTree = "<group>"; };
 		F11F7C1E24BFDD2600DB96B3 /* NSObject+WOSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WOSwizzle.h"; sourceTree = "<group>"; };
+		F1287E73258462EB00D9574D /* ABRedis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRedis.h; sourceTree = "<group>"; };
+		F1287E74258462EB00D9574D /* ABRedis.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRedis.m; sourceTree = "<group>"; };
 		F136DD1A24791F2200412394 /* ABMQSubscibe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQSubscibe.h; sourceTree = "<group>"; };
 		F136DD1B24791F2200412394 /* ABMQSubscibe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQSubscibe.m; sourceTree = "<group>"; };
 		F142506A24974760003E83D8 /* ABWebSocketConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocketConfiguration.h; sourceTree = "<group>"; };
@@ -144,8 +150,14 @@
 		F1A4D89024C7E1BA003A6031 /* ABTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTimer.m; sourceTree = "<group>"; };
 		F1A4D89824C92C36003A6031 /* ABTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTools.h; sourceTree = "<group>"; };
 		F1A4D89924C92C36003A6031 /* ABTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTools.m; sourceTree = "<group>"; };
+		F1B92FC625932C770023382F /* ABNetUploadRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetUploadRequest.h; sourceTree = "<group>"; };
+		F1B92FC725932C770023382F /* ABNetUploadRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetUploadRequest.m; sourceTree = "<group>"; };
+		F1B92FCA25932C910023382F /* ABNetUploadObjectResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetUploadObjectResult.h; sourceTree = "<group>"; };
+		F1B92FCB25932C910023382F /* ABNetUploadObjectResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetUploadObjectResult.m; sourceTree = "<group>"; };
 		F1BCCED02478C1E8005B94D4 /* ABMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQ.h; sourceTree = "<group>"; };
 		F1BCCED12478C1E8005B94D4 /* ABMQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQ.m; sourceTree = "<group>"; };
+		F1CAF7BA258C4B9E00CD4D54 /* ABRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRouter.h; sourceTree = "<group>"; };
+		F1CAF7BB258C4B9E00CD4D54 /* ABRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRouter.m; sourceTree = "<group>"; };
 		F1EADCCC24873E4000B17B1A /* ABWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABWebSocket.h; sourceTree = "<group>"; };
 		F1EADCCD24873E4000B17B1A /* ABWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABWebSocket.m; sourceTree = "<group>"; };
 		FF922021528014F98DB98AC5 /* Pods-ABFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFoundation.debug.xcconfig"; path = "Target Support Files/Pods-ABFoundation/Pods-ABFoundation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +326,10 @@
 				F1A4D89024C7E1BA003A6031 /* ABTimer.m */,
 				F11AA4FB24D424C100FCFE18 /* ABTCPSessionManager.h */,
 				F11AA4FC24D424C100FCFE18 /* ABTCPSessionManager.m */,
+				F1287E73258462EB00D9574D /* ABRedis.h */,
+				F1287E74258462EB00D9574D /* ABRedis.m */,
+				F1CAF7BA258C4B9E00CD4D54 /* ABRouter.h */,
+				F1CAF7BB258C4B9E00CD4D54 /* ABRouter.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -338,6 +354,10 @@
 				F14C35BB24751CB70060D435 /* NSObject+ABNet.m */,
 				F14C35CE24752D4A0060D435 /* ABNetConfiguration.h */,
 				F14C35CF24752D4A0060D435 /* ABNetConfiguration.m */,
+				F1B92FC625932C770023382F /* ABNetUploadRequest.h */,
+				F1B92FC725932C770023382F /* ABNetUploadRequest.m */,
+				F1B92FCA25932C910023382F /* ABNetUploadObjectResult.h */,
+				F1B92FCB25932C910023382F /* ABNetUploadObjectResult.m */,
 			);
 			path = ABNet;
 			sourceTree = "<group>";
@@ -439,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */,
+				F1B92FC825932C770023382F /* ABNetUploadRequest.m in Sources */,
 				F11F7C2324BFDD2600DB96B3 /* NSObject+NSNotificationCrash.m in Sources */,
 				F14C35CC24751CB70060D435 /* ABTime.m in Sources */,
 				F14C359A2475185A0060D435 /* ViewController.m in Sources */,
@@ -456,6 +477,7 @@
 				F142506C24974760003E83D8 /* ABWebSocketConfiguration.m in Sources */,
 				F1A4D89A24C92C36003A6031 /* ABTools.m in Sources */,
 				F14C35C624751CB70060D435 /* ABNetRequest.m in Sources */,
+				F1B92FCC25932C910023382F /* ABNetUploadObjectResult.m in Sources */,
 				F14C35C524751CB70060D435 /* ABNet.m in Sources */,
 				F14C35CB24751CB70060D435 /* ABDevice.m in Sources */,
 				F14C35C924751CB70060D435 /* ABNetResponse.m in Sources */,
@@ -463,6 +485,7 @@
 				F11F7C2524BFDD2600DB96B3 /* WOCrashProtectorManager.m in Sources */,
 				F11F7C2224BFDD2600DB96B3 /* NSObject+WOSwizzle.m in Sources */,
 				F14250752499EF5F003E83D8 /* ABFileManager.m in Sources */,
+				F1CAF7BC258C4B9E00CD4D54 /* ABRouter.m in Sources */,
 				F14C35942475185A0060D435 /* AppDelegate.m in Sources */,
 				F136DD1C24791F2200412394 /* ABMQSubscibe.m in Sources */,
 				F11F7C2824BFDD2600DB96B3 /* NSArray+WOCrash.m in Sources */,
@@ -470,6 +493,7 @@
 				F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */,
 				F11F7C1F24BFDD2600DB96B3 /* NSObject+KVOCrash.m in Sources */,
 				F11F7C2924BFDD2600DB96B3 /* NSAttributedString+WOCrash.m in Sources */,
+				F1287E75258462EB00D9574D /* ABRedis.m in Sources */,
 				F14C35A52475185E0060D435 /* main.m in Sources */,
 				F11F7C2424BFDD2600DB96B3 /* WOCrashLog.m in Sources */,
 				F11AA4FD24D424C100FCFE18 /* ABTCPSessionManager.m in Sources */,

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)host:(NSString *)uri;
 - (NSDictionary *)headers:(NSString *)uri;
 - (NSString *)contentType:(NSString *)uri;
+- (NSString *)responseContentType:(NSString *)uri;
 - (NSInteger)successCode:(ABNetRequest *)request;
 - (NSString *)codeKey:(ABNetRequest *)request;
 - (NSString *)msgKey:(ABNetRequest *)request;

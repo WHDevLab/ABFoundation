@@ -10,6 +10,10 @@
 #import "ABNetConfiguration.h"
 #import "ABNet.h"
 @implementation NSObject (ABNet)
+- (void)fetchRequest:(ABNetRequest *)request {
+    [request ready];
+    [[ABNet shared] push:request];
+}
 
 - (void)fetchUri:(NSString *)uri host:(NSString *)host params:(nullable NSDictionary *)params {
     [self fetchMethod:@"get" host:host uri:uri params:params isCancelWhenDealloc:true cachePolicy:ABNetRequestCachePolicyNone cacheKey:@"xx"];
@@ -28,8 +32,13 @@
     ABNetRequest *request = [[ABNetRequest alloc] init];
     if ([uri hasPrefix:@"http"]) {
         NSURL *uu = [NSURL URLWithString:uri];
-        request.host = [NSString stringWithFormat:@"%@://%@:%@", uu.scheme,uu.host, uu.port];
+        if (uu.port == nil) {
+            request.host = [NSString stringWithFormat:@"%@://%@", uu.scheme,uu.host];
+        }else{
+            request.host = [NSString stringWithFormat:@"%@://%@:%@", uu.scheme,uu.host, uu.port];
+        }
         request.uri = [NSURL URLWithString:uri].path;
+        request.putUrl = uri;
     }else {
         if (host == nil) {
             request.host = [[ABNetConfiguration shared].provider host:uri];

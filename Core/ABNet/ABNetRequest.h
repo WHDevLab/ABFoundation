@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ABNetError.h"
+#import "ABNetUploadRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 @class ABNetRequest;
 @protocol INetData <NSObject>
@@ -30,15 +31,10 @@ typedef enum : NSUInteger {
     ABNetRequestStatusFinish,
 }ABNetRequestStatus;
 
-@interface ABNetUploadRequest : NSObject
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *object;
-@property (nonatomic, strong) NSData *body;
-@end
-
 @interface ABNetRequest : NSObject
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) NSString *method;
+@property (nonatomic, strong) NSString *putUrl;
 @property (nonatomic, strong) NSString *uri;
 @property (nonatomic, strong) NSDictionary *params;
 @property (nonatomic, strong) NSDictionary *headers;
@@ -57,6 +53,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isShowLoading;
 @property (nonatomic, assign) BOOL isWaitingNet;
 @property (nonatomic, assign) BOOL canSend;
+@property (nonatomic, strong) NSString *responseContentType;
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;
@@ -64,6 +61,8 @@ typedef enum : NSUInteger {
 - (void)ready;
 
 - (BOOL)isExpire;
+
++ (ABNetRequest *)getUri:(NSString *)uri params:(NSDictionary *)params;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerDataProcess:(id<ABNetPluginType>)process key:(NSString *)key;
 - (void)ready;
 
-- (void)uploadWithURL:(NSString *)url image:(UIImage *)image success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
++ (void)uploadWithURL:(NSString *)url params:(NSDictionary *)params files:(NSArray<NSDictionary<NSString*,id>*>*)fileDatas success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
 
 - (BOOL)isNetReachable;
 - (void)uploadObject:(ABNetUploadRequest *)request;

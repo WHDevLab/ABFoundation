@@ -51,8 +51,11 @@
     id<ABNetPluginType> pl = [self getPL:request];
     if (pl != nil && [pl respondsToSelector:@selector(prepare:)]) {
         ABNetRequest *req = [pl prepare:request];
-        
-        if ([pl canSend:req]) {
+        BOOL canSend = request.canSend;
+        if ([pl respondsToSelector:@selector(canSend:)]) {
+            canSend = [pl canSend:req];
+        }
+        if (canSend) {
             [self _realRequest:req];
             
             [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -131,6 +134,9 @@
         if ([obj respondsToSelector:@selector(endSend:)]) {
             [obj endSend:req];
         }
+        if ([obj respondsToSelector:@selector(didReceiveError:error:)]) {
+            [obj didReceiveError:req error:err];
+        }
     }];
     
     [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -157,7 +163,7 @@
     }
 }
 
-- (void)uploadWithURL:(NSString *)url image:(UIImage *)image success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable responseObject))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
++ (void)uploadWithURL:(NSString *)url params:(NSDictionary *)params files:(NSArray<NSDictionary<NSString *,id> *> *)fileDatas success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
     NSDictionary *headers = [[ABNetConfiguration shared].provider headers:@"/"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",@"text/html",
@@ -172,15 +178,22 @@
 
                                                             nil];
      [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-    [manager POST:url parameters:nil headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSData *fileData = UIImageJPEGRepresentation(image, 0.5);
-        // 设置上传图片的名字
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyyMMddHHmmss";
-        NSString *str = [formatter stringFromDate:[NSDate date]];
-        NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
-        [formData appendPartWithFileData:fileData name:@"avater" fileName:fileName mimeType:@"image/png"];
-    } progress:nil success:success failure:failure];
+    [manager POST:url parameters:params headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        for (int i=0; i<fileDatas.count; i++) {
+            NSDictionary* unitData = fileDatas[i];
+            if (unitData && [unitData objectForKey:@"key"] && [unitData objectForKey:@"filename"] && [unitData objectForKey:@"data"]) {
+                if ([[unitData objectForKey:@"data"] isKindOfClass:[NSData class]]) {
+                    [formData appendPartWithFileData:(NSData*)[unitData objectForKey:@"data"] name:[unitData objectForKey:@"key"] fileName:[unitData objectForKey:@"filename"] mimeType:@"application/octet-stream"];
+                }else if([[unitData objectForKey:@"data"] isKindOfClass:[NSURL class]]){
+                    [formData appendPartWithFileURL:(NSURL*)[unitData objectForKey:@"data"] name:[unitData objectForKey:@"key"] fileName:[unitData objectForKey:@"filename"] mimeType:@"application/octet-stream" error:nil];
+                }
+            }
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"%lld     ------ %lld",uploadProgress.totalUnitCount,uploadProgress.completedUnitCount);
+        CGFloat p = 1.0*uploadProgress.completedUnitCount/uploadProgress.totalUnitCount;
+        NSLog(@"%.2f", p);
+    } success:success failure:failure];
 }
 
 - (BOOL)isNetReachable {
@@ -204,5 +217,4 @@
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
-
 @end

@@ -13,6 +13,7 @@
 - (ABNetError *)initWithError:(NSError *)error {
     self = [super init];
     if (self) {
+        NSLog(@"%@", error);
         self.code = error.code;
         if ([[ABNet shared] isNetReachable]) {
             self.message = @"服务器开小差了";
