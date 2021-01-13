@@ -7,6 +7,7 @@
 //
 
 #import "ABTools.h"
+#import <CommonCrypto/CommonCrypto.h>
 @implementation ABTools
 + (BOOL)isValidPhone:(NSString *)phone
 {
@@ -258,5 +259,4 @@
     // 版本号相等
     return 0;
 }
-
 @end

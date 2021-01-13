@@ -12,6 +12,7 @@
 #import "IMService.h"
 #import "NSDictionary+AB.h"
 #import <sys/utsname.h>//要导入头文件
+#import "ABTime.h"
 @interface ABNetWorker ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) ABNetRequest *req;
@@ -182,8 +183,9 @@
         }
         
         NSMutableString *string = [[NSMutableString alloc] init];
-        [string appendString:@"\n\n******************请求发送错误************************\n"];
+        [string appendString:@"\n\n******************请求发生错误************************\n"];
         [string appendString:[NSString stringWithFormat:@"**CreateTime:%@\n", request.timestamp]];
+        [string appendString:[NSString stringWithFormat:@"**CreateTimeFormat:%@\n", [ABTime timestampToTime:request.timestamp format:@"yyyy-MM-dd hh:mm:ss"]]];
         [string appendString:[NSString stringWithFormat:@"**From:%@\n", [request.target description]]];
         [string appendString:[NSString stringWithFormat:@"**Host:%@\n", request.host]];
         [string appendString:[NSString stringWithFormat:@"**Api:%@\n", request.uri]];
@@ -204,6 +206,7 @@
 - (void)faillureRequest:(ABNetRequest *)request error:(NSError *)err {
     self.isFree = true;
     ABNetError *error = [[ABNetError alloc] initWithError:err];
+    error.uri = request.uri;
     [self.delegate netWorkerFailure:self request:request err:error];
     
     if ([ABNetConfiguration shared].provider.isDebugLog == false) {
@@ -211,8 +214,9 @@
     }
     
     NSMutableString *string = [[NSMutableString alloc] init];
-    [string appendString:@"\n\n******************请求发送错误************************\n"];
+    [string appendString:@"\n\n******************请求发生错误************************\n"];
     [string appendString:[NSString stringWithFormat:@"**CreateTime:%@\n", request.timestamp]];
+    [string appendString:[NSString stringWithFormat:@"**CreateTimeFormat:%@\n", [ABTime timestampToTime:request.timestamp format:@"yyyy-MM-dd hh:mm:ss"]]];
     [string appendString:[NSString stringWithFormat:@"**From:%@\n", [request.target description]]];
     [string appendString:[NSString stringWithFormat:@"**Host:%@\n", request.host]];
     [string appendString:[NSString stringWithFormat:@"**Api:%@\n", request.uri]];

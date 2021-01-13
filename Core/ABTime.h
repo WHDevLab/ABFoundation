@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)timestamp;
 + (NSString *)timestampToTime:(NSString *)timestamp format:(nullable NSString *)format;
 - (NSString *)howMuchTimePassed:(NSString *)timestamp;
++ (NSString *)dateToTime:(NSDate *)date format:(nullable NSString *)format;
 @end
 
 NS_ASSUME_NONNULL_END

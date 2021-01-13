@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ABNetError : NSObject
 @property (nonatomic, assign) NSInteger code;
 @property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString *uri;
 
 @property (nonatomic, strong) NSString *des;
 

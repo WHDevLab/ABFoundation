@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 #import "ABDefines.h"
+#import <CoreLocation/CLLocationManager.h>
 @import CoreTelephony;
 @implementation ABDevice
 - (NSString *)appVersion {
@@ -69,6 +70,48 @@
     return false;
 }
 
++ (BOOL)isAvailableLocation {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    return status == kCLAuthorizationStatusDenied;
+//    switch (status) {
+//        case kCLAuthorizationStatusNotDetermined:
+//        {
+//            // 未处理
+//            NSLog(@"未处理");
+//        }
+//            break;
+//        case kCLAuthorizationStatusDenied:
+//        {
+//            // 判断当前设备是否支持定位, 定位服务是否开启
+//            if([CLLocationManager locationServicesEnabled])
+//            {
+//                NSLog(@"被拒绝");
+//            } else {
+//                NSLog(@"定位服务被关闭");
+//            }
+//        }
+//            break;
+//        case kCLAuthorizationStatusRestricted:
+//        {
+//            NSLog(@"受限制");
+//        }
+//            break;
+//        case kCLAuthorizationStatusAuthorizedAlways:
+//        {
+//            NSLog(@"前后台定位授权");
+//        }
+//            break;
+//        case kCLAuthorizationStatusAuthorizedWhenInUse:
+//        {
+//            NSLog(@"前台定位授权");
+//        }
+//          break;
+//        default:
+//            break;
+//    }
+//    return false;
+}
+
 + (void)isAvailableRecord:(AvailableBlock)block{
     AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
     if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
@@ -112,6 +155,8 @@
     return false;
 }
 
+
+
 + (void)gotoAppSetting {
     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
@@ -129,4 +174,5 @@
     }
     return 0;
 }
+
 @end

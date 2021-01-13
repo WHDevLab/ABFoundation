@@ -71,7 +71,7 @@
 //字符串转时间戳 如：2017-4-10 17:15:10
 - (NSString *)timestampFromYMDHMS:(NSString *)str{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];// 创建一个时间格式化对象
-    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; //设定时间的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //设定时间的格式
     NSDate *tempDate = [dateFormatter dateFromString:str];//将字符串转换为时间对象
     NSString *timeStr = [NSString stringWithFormat:@"%ld", (long)[tempDate timeIntervalSince1970]*1000];//字符串转成时间戳,精确到毫秒*1000
     return timeStr;
@@ -200,6 +200,18 @@
     }
     
     return [timestamp doubleValue];
+}
+
++ (NSString *)dateToTime:(NSDate *)date format:(nullable NSString *)format {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if (format == nil) {
+        [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
+    }else{
+        [dateFormatter setDateFormat:format];
+    }
+    
+    NSString *currentDateStr = [dateFormatter stringFromDate:date];
+    return currentDateStr;
 }
 
 @end

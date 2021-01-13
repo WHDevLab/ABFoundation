@@ -20,6 +20,7 @@ typedef void (^AvailableBlock)(BOOL isAvailable);
 + (void)isAvailableRecord:(AvailableBlock)block; //麦克风权限(调用会弹出授权框)
 + (BOOL)isAvailablePhoto; //相册权限
 + (BOOL)isAvailableNet; //联网权限
++ (BOOL)isAvailableLocation; //定位权限
 
 + (void)gotoAppSetting;
 
