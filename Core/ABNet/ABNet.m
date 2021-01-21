@@ -46,6 +46,10 @@
     [self.patterns setValue:process forKey:key];
 }
 
+- (void)pushUpload:(ABNetUploadRequest *)req {
+    
+}
+
 - (void)push:(ABNetRequest *)request {
     request.handleTarget = self;
     id<ABNetPluginType> pl = [self getPL:request];
@@ -163,7 +167,17 @@
     }
 }
 
+
+//[files addObject:@{
+//    @"key":@"attachment",
+//    @"filename":m.fileName,
+//    @"data":data
+//}];
 + (void)uploadWithURL:(NSString *)url params:(NSDictionary *)params files:(NSArray<NSDictionary<NSString *,id> *> *)fileDatas success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
+    NSString *nUrl = url;
+    if ([url hasPrefix:@"http"] == false) {
+        nUrl = [NSString stringWithFormat:@"%@%@", [[ABNetConfiguration shared].provider host:url], url];
+    }
     NSDictionary *headers = [[ABNetConfiguration shared].provider headers:@"/"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",@"text/html",
@@ -178,7 +192,7 @@
 
                                                             nil];
      [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-    [manager POST:url parameters:params headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:nUrl parameters:params headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         for (int i=0; i<fileDatas.count; i++) {
             NSDictionary* unitData = fileDatas[i];
             if (unitData && [unitData objectForKey:@"key"] && [unitData objectForKey:@"filename"] && [unitData objectForKey:@"data"]) {

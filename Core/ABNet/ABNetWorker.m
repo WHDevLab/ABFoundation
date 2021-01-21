@@ -57,9 +57,14 @@
     self.isFree = false;
     self.req = request;
     
+    
     if ([[ABNetConfiguration shared].provider isTCPRequest:request]) {
         [self doTCPRequest:self.req];
-    }else{
+    }
+    if ([request.method isEqualToString:@"upload"]) {
+        [self doUploadRequest:request];
+    }
+    else{
         [self doRequest:request];
     }
 }
@@ -93,6 +98,43 @@
 //    service.token = [Service shared].account.gmtoken;
 }
 
+- (void)doUploadRequest:(ABNetRequest *)request {
+    NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:request.headers];
+    [headers setValue:request.timestamp forKey:@"fk"];
+    [headers setValue:self.osinfo forKey:@"os"];
+    NSString *method = [request.method lowercaseString];
+
+    NSString *url = [NSString stringWithFormat:@"%@%@", request.host, request.realUri];
+    NSDictionary *params = request.realParams;
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",@"text/html",
+
+                                                            @"image/jpeg",
+
+                                                            @"image/png",
+
+                                                            @"application/octet-stream",
+
+                                                            @"text/json",
+
+                                                            nil];
+     [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    __weak typeof(self) weakSelf = self;
+    [manager POST:url parameters:params headers:headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        for (int i=0; i<request.binarys.count; i++) {
+            [formData appendPartWithFileData:request.binarys[i] name:request.binaryKey fileName:@"abc.jpg" mimeType:@"application/octet-stream"];
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"%lld     ------ %lld",uploadProgress.totalUnitCount,uploadProgress.completedUnitCount);
+        CGFloat p = 1.0*uploadProgress.completedUnitCount/uploadProgress.totalUnitCount;
+        NSLog(@"%.2f", p);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [weakSelf finishRequest:request responseObject:responseObject];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self faillureRequest:request error:[NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"错误"}]];
+    }];
+}
 
 - (void)doRequest:(ABNetRequest *)request {
     NSLog(@"%@", request.uri);
@@ -175,7 +217,7 @@
         ABNetError *error = [[ABNetError alloc] init];
         error.code = codeValue;
         error.message = msgValue;
-        
+        error.uri = request.uri;
         self.isFree = true;
         [self.delegate netWorkerFailure:self request:request err:error];
         if ([ABNetConfiguration shared].provider.isDebugLog == false) {

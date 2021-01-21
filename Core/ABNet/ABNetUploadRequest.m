@@ -9,5 +9,11 @@
 #import "ABNetUploadRequest.h"
 
 @implementation ABNetUploadRequest
-
++ (ABNetUploadRequest *)createWithUri:(NSString *)uri params:(nonnull NSDictionary *)params data:(nonnull id)data key:(NSString *)key {
+    ABNetUploadRequest *uploadRequest = [[ABNetUploadRequest alloc] init];
+    uploadRequest.url = uri;
+    uploadRequest.body = data;
+    uploadRequest.key = @"file";
+    return uploadRequest;
+}
 @end

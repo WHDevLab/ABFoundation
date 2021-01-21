@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "ABNetRequest.h"
 #import "ABNetPlugin.h"
+#import "ABNetUploadRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface ABNet : NSObject
 + (ABNet *)shared;
 @property (nonatomic, strong) id<ABNetPluginType> errorHandle;
 @property (nonatomic, strong) NSArray<id<ABNetPluginType>> *plugins;
 - (void)push:(ABNetRequest *)req;
+- (void)pushUpload:(ABNetUploadRequest *)req;
 - (void)registerDataProcess:(id<ABNetPluginType>)process key:(NSString *)key;
 - (void)ready;
 

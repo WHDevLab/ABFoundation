@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ABNetError.h"
-#import "ABNetUploadRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 @class ABNetRequest;
 @protocol INetData <NSObject>
@@ -54,6 +53,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isWaitingNet;
 @property (nonatomic, assign) BOOL canSend;
 @property (nonatomic, strong) NSString *responseContentType;
+
+//用于上传文件
+@property (nonatomic, strong) NSString *binaryKey;
+@property (nonatomic, strong) NSArray<NSData *> *binarys;
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;

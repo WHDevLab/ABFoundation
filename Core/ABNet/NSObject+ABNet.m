@@ -9,6 +9,7 @@
 #import "NSObject+ABNet.h"
 #import "ABNetConfiguration.h"
 #import "ABNet.h"
+#import "ABNetUploadRequest.h"
 @implementation NSObject (ABNet)
 - (void)fetchRequest:(ABNetRequest *)request {
     [request ready];
@@ -63,6 +64,44 @@
     
     [request ready];
     [[ABNet shared] push:request];
+}
+
+- (void)uploadToUri:(NSString *)uri params:(NSDictionary *)params data:(UIImage *)data key:(NSString *)key {
+    if (data == nil) {
+        NSLog(@"data is empty");
+        return;
+    }
+    ABNetRequest *request = [[ABNetRequest alloc] init];
+    if ([uri hasPrefix:@"http"]) {
+        NSURL *uu = [NSURL URLWithString:uri];
+        if (uu.port == nil) {
+            request.host = [NSString stringWithFormat:@"%@://%@", uu.scheme,uu.host];
+        }else{
+            request.host = [NSString stringWithFormat:@"%@://%@:%@", uu.scheme,uu.host, uu.port];
+        }
+        request.uri = [NSURL URLWithString:uri].path;
+        request.putUrl = uri;
+    }else {
+        request.host = [[ABNetConfiguration shared].provider host:uri];
+        request.uri = uri;
+    }
+    request.headers = [[ABNetConfiguration shared].provider headers:uri];
+    
+    request.params = params;
+    request.method = @"upload";
+    
+    request.binarys = @[UIImageJPEGRepresentation(data, 0.2)];
+    request.binaryKey = key;
+
+    request.target = (id<INetData>)self;
+    request.isCancelWhenTargetDealloc = false;
+    
+    [request ready];
+    [[ABNet shared] push:request];
+}
+
+- (void)uploadRequest:(ABNetUploadRequest *)request {
+    [[ABNet shared] pushUpload:request];
 }
 
 - (BOOL)isEmpty {
