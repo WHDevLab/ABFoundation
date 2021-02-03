@@ -106,4 +106,13 @@
     return dic;
 }
 
++ (NSArray<NSString *> *)pickAllValueWithKey:(NSString *)key arr:(NSArray<NSDictionary *> *)arr {
+    NSMutableArray *xx = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in arr) {
+        [xx addObject:item[key]];
+    }
+    
+    return xx;
+}
+
 @end

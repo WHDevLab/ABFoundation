@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray *)filter:(NSArray *)list block:(BOOL (^)(NSMutableDictionary *dic))block;
 + (NSDictionary *)setAndReaplceKeyTo:(NSDictionary *)tdic with:(NSDictionary *)wdic;
++ (NSArray<NSString *> *)pickAllValueWithKey:(NSString *)key arr:(NSArray<NSDictionary *> *)arr;
 @end
 
 NS_ASSUME_NONNULL_END
