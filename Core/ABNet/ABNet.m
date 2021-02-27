@@ -34,6 +34,7 @@
         self.netQuene = [ABNetQuene shared];
         self.patterns = [[NSMutableDictionary alloc] init];
         self.plugins = [[NSArray alloc] init];
+        self.logs = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -111,6 +112,7 @@
 }
 
 - (void)onNetRequestSuccess:(ABNetRequest *)req obj:(NSDictionary *)obj isCache:(BOOL)isCache {
+    [self.logs addObject:@{@"state":@"success", @"uri":req.uri}];
     id<ABNetPluginType> pl = [self getPL:req];
     if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
         [pl endSend:req];
@@ -129,6 +131,7 @@
 }
 
 - (void)onNetRequestFailure:(ABNetRequest *)req err:(ABNetError *)err {
+    [self.logs addObject:@{@"state":@"failure", @"uri":req.uri, @"err":err.des}];
     id<ABNetPluginType> pl = [self getPL:req];
     if (self.errorHandle) {
         [self.errorHandle didReceiveError:req error:err];

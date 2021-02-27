@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-NS_ASSUME_NONNULL_BEGIN
 
+NS_ASSUME_NONNULL_BEGIN
+@class ABNetRequest;
 @interface ABNetError : NSObject
 @property (nonatomic, assign) NSInteger code;
 @property (nonatomic, strong) NSString *message;
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (ABNetError *)initWithError:(NSError *)error;
 - (ABNetError *)initWithDic:(NSDictionary *)dic;
 - (BOOL)isNetReachable;
+- (NSString *)desf:(ABNetRequest *)request error:(ABNetError *)error;
 @end
 
 NS_ASSUME_NONNULL_END

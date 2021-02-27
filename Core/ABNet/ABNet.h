@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (ABNet *)shared;
 @property (nonatomic, strong) id<ABNetPluginType> errorHandle;
 @property (nonatomic, strong) NSArray<id<ABNetPluginType>> *plugins;
+@property (nonatomic, strong) NSMutableArray *logs;
 - (void)push:(ABNetRequest *)req;
 - (void)pushUpload:(ABNetUploadRequest *)req;
 - (void)registerDataProcess:(id<ABNetPluginType>)process key:(NSString *)key;
