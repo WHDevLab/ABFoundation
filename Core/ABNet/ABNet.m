@@ -33,7 +33,7 @@
     if (self) {
         self.netQuene = [ABNetQuene shared];
         self.patterns = [[NSMutableDictionary alloc] init];
-        self.plugins = [[NSArray alloc] init];
+        self.plugins = [[NSMutableArray alloc] init];
         self.logs = [[NSMutableArray alloc] init];
     }
     return self;
@@ -41,6 +41,24 @@
 
 - (void)ready{
     
+}
+
+- (void)registerPlugin:(NSString *)plugin {
+    id obj = [[NSClassFromString(plugin) alloc] init];
+    if ([obj conformsToProtocol:@protocol(ABNetPluginType)]) {
+        [self.plugins addObject:obj];
+    }else{
+        NSAssert(NO, @"plugin 必须准守协议ABNetPluginType");
+    }
+}
+
+- (void)registerIntercept:(NSString *)intercept route:(NSString *)route {
+    id obj = [[NSClassFromString(intercept) alloc] init];
+    if ([obj conformsToProtocol:@protocol(ABNetPluginType)]) {
+        [self.patterns setValue:obj forKey:route];
+    }else{
+        NSAssert(NO, @"intercept 必须准守协议ABNetPluginType");
+    }
 }
 
 - (void)registerDataProcess:(id<ABNetPluginType>)process key:(NSString *)key {

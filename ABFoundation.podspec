@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
 	s.subspec 'ABWebSocket' do |ss|
 		ss.source_files = 'Core/ABWebSocket/*.{h,m}'
 	end
+	s.subspec 'ABLanguage' do |ss|
+		ss.source_files = 'Core/ABLanguage/*.{h,m}'
+	end
 	s.subspec 'WOCrashProtector' do |ss|
 		ss.source_files = 'Core/WOCrashProtector/*.{h,m}'
 		ss.subspec 'WOContainer' do |sss|
