@@ -57,6 +57,7 @@
 		F1A4D89A24C92C36003A6031 /* ABTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4D89924C92C36003A6031 /* ABTools.m */; };
 		F1B92FC825932C770023382F /* ABNetUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B92FC725932C770023382F /* ABNetUploadRequest.m */; };
 		F1B92FCC25932C910023382F /* ABNetUploadObjectResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B92FCB25932C910023382F /* ABNetUploadObjectResult.m */; };
+		F1BC90582603122800454DC3 /* ABSecrect.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BC90572603122800454DC3 /* ABSecrect.m */; };
 		F1BCCED22478C1E8005B94D4 /* ABMQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCED12478C1E8005B94D4 /* ABMQ.m */; };
 		F1CAF7BC258C4B9E00CD4D54 /* ABRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CAF7BB258C4B9E00CD4D54 /* ABRouter.m */; };
 		F1EADCCE24873E4000B17B1A /* ABWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EADCCD24873E4000B17B1A /* ABWebSocket.m */; };
@@ -163,6 +164,8 @@
 		F1B92FC725932C770023382F /* ABNetUploadRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetUploadRequest.m; sourceTree = "<group>"; };
 		F1B92FCA25932C910023382F /* ABNetUploadObjectResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABNetUploadObjectResult.h; sourceTree = "<group>"; };
 		F1B92FCB25932C910023382F /* ABNetUploadObjectResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABNetUploadObjectResult.m; sourceTree = "<group>"; };
+		F1BC90562603122800454DC3 /* ABSecrect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABSecrect.h; sourceTree = "<group>"; };
+		F1BC90572603122800454DC3 /* ABSecrect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABSecrect.m; sourceTree = "<group>"; };
 		F1BCCED02478C1E8005B94D4 /* ABMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABMQ.h; sourceTree = "<group>"; };
 		F1BCCED12478C1E8005B94D4 /* ABMQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABMQ.m; sourceTree = "<group>"; };
 		F1CAF7BA258C4B9E00CD4D54 /* ABRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRouter.h; sourceTree = "<group>"; };
@@ -308,6 +311,7 @@
 		F14C35AB24751CB60060D435 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1BC905A2603146700454DC3 /* ABSecrets */,
 				F14E758F25F864280088C6B2 /* ABLanguage */,
 				F1A4D89824C92C36003A6031 /* ABTools.h */,
 				F1A4D89924C92C36003A6031 /* ABTools.m */,
@@ -383,6 +387,15 @@
 				F14E75BD25F8BD890088C6B2 /* NSObject+Language.m */,
 			);
 			path = ABLanguage;
+			sourceTree = "<group>";
+		};
+		F1BC905A2603146700454DC3 /* ABSecrets */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC90562603122800454DC3 /* ABSecrect.h */,
+				F1BC90572603122800454DC3 /* ABSecrect.m */,
+			);
+			path = ABSecrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BC90582603122800454DC3 /* ABSecrect.m in Sources */,
 				F14C35C424751CB70060D435 /* ABNetWorker.m in Sources */,
 				F1B92FC825932C770023382F /* ABNetUploadRequest.m in Sources */,
 				F11F7C2324BFDD2600DB96B3 /* NSObject+NSNotificationCrash.m in Sources */,

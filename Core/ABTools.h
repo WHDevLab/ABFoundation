@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CLLocationManager.h>
 NS_ASSUME_NONNULL_BEGIN
-
 @interface ABTools : NSObject
 + (BOOL)isValidPhone:(NSString *)phone;
 + (BOOL)isValidEmail:(NSString *)email;

@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 	s.source_files     = 'Core/*.{h,m}'
 	s.dependency "AFNetworking"
 	s.dependency "SocketRocket"
+	s.dependency "GTMBase64"
 	s.subspec 'ABNet' do |ss|
 		ss.source_files = 'Core/ABNet/*.{h,m}'
 	end
@@ -27,6 +28,9 @@ Pod::Spec.new do |s|
 	end
 	s.subspec 'ABLanguage' do |ss|
 		ss.source_files = 'Core/ABLanguage/*.{h,m}'
+	end
+	s.subspec 'ABSecrets' do |ss|
+		ss.source_files = 'Core/ABSecrets/*.{h,m}'
 	end
 	s.subspec 'WOCrashProtector' do |ss|
 		ss.source_files = 'Core/WOCrashProtector/*.{h,m}'

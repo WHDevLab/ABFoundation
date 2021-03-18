@@ -38,6 +38,9 @@
 }
 
 - (void)setLangKey:(NSString *)langKey {
+    if (langKey == nil) {
+        return;
+    }
     objc_setAssociatedObject(self, @"langKey", langKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self listenLanguageChanged];
 }
