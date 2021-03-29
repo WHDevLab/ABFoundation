@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
     ABNetRequestCachePolicyNone,
-    ABNetRequestCachePolicyCacheDataElseLoad,
-    ABNetRequestCachePolicyCacheDataDontLoad,
-    ABNetRequestCachePolicyCacheDataAndLoad
+    ABNetRequestCachePolicyCacheDataElseLoad,//有缓存用缓存，没有就请求
+    ABNetRequestCachePolicyCacheDataDontLoad, //直接使用缓存,不请求
+    ABNetRequestCachePolicyCacheDataAndLoad //先载入缓存,然后继续请求
 } ABNetRequestCachePolicy;
 
 
@@ -55,8 +55,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSString *responseContentType;
 
 //用于上传文件
-@property (nonatomic, strong) NSString *binaryKey;
-@property (nonatomic, strong) NSArray<NSData *> *binarys;
+@property (nonatomic, strong) NSString *binaryKey; //服务端读取二进制的key，eg:file
+@property (nonatomic, strong) NSArray<NSData *> *binarys; //二进制数组
 
 ///网络请求是否随着target释放而取消
 @property (nonatomic, assign) BOOL isCancelWhenTargetDealloc;

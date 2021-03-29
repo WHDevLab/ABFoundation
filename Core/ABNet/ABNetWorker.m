@@ -204,7 +204,7 @@
         if (dataKey == nil) {
             [self.delegate netWorkerFinish:self request:request responseObject:responseObject];
         }else{
-            NSLog(@"%@", responseObject[@"info"]);
+            NSLog(@"finishRequest info :%@", responseObject[@"info"]);
             NSDictionary *res = responseObject[dataKey];
             
             if ([res isKindOfClass:[NSArray class]]) {

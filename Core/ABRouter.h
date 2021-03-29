@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)dismiss;
 + (void)back;
 + (void)pushTo:(nullable UIViewController *)to props:(nullable NSDictionary *)props;
++ (void)gotoWeb:(NSString *)path;
++ (void)gotoPageWithClassString:(NSString *)string data:(nullable NSDictionary *)data;
 @end
 
 NS_ASSUME_NONNULL_END

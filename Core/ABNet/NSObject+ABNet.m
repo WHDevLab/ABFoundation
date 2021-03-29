@@ -10,6 +10,7 @@
 #import "ABNetConfiguration.h"
 #import "ABNet.h"
 #import "ABNetUploadRequest.h"
+#import "NSString+AB.h"
 @implementation NSObject (ABNet)
 - (void)fetchRequest:(ABNetRequest *)request {
     [request ready];
@@ -26,6 +27,10 @@
 
 - (void)fetchPostUri:(NSString *)uri params:(nullable NSDictionary *)params {
     [self fetchMethod:@"post" host:nil uri:uri params:params isCancelWhenDealloc:true cachePolicy:ABNetRequestCachePolicyNone cacheKey:@"xx"];
+}
+
+- (void)fetchPostUri:(NSString *)uri params:(nullable NSDictionary *)params cachePolicy:(ABNetRequestCachePolicy)cachePolicy {
+    [self fetchMethod:@"post" host:nil uri:uri params:params isCancelWhenDealloc:true cachePolicy:cachePolicy cacheKey:[uri md5]];
 }
 
 - (void)fetchMethod:(NSString *)method host:(nullable NSString *)host uri:(NSString *)uri params:(nullable NSDictionary *)params isCancelWhenDealloc:(BOOL)isCancelWhenDealloc cachePolicy:(ABNetRequestCachePolicy)cachePolicy cacheKey:(NSString *)cacheKey {

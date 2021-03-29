@@ -49,6 +49,7 @@
 		F14E759325F8644B0088C6B2 /* ABLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E759225F8644B0088C6B2 /* ABLanguage.m */; };
 		F14E759725F8645E0088C6B2 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E759625F8645E0088C6B2 /* NSString+Language.m */; };
 		F14E75BE25F8BD890088C6B2 /* NSObject+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E75BD25F8BD890088C6B2 /* NSObject+Language.m */; };
+		F154DDBB260F2CA0007818F3 /* ABCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F154DDBA260F2CA0007818F3 /* ABCache.m */; };
 		F16CBB1D24ADE90B00CA6C18 /* ABIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */; };
 		F16CBB3E24AE109000CA6C18 /* ABAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBB3D24AE109000CA6C18 /* ABAudio.m */; };
 		F16CBB4024AE114B00CA6C18 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F16CBB3F24AE114B00CA6C18 /* 1.mp3 */; };
@@ -149,6 +150,8 @@
 		F14E759625F8645E0088C6B2 /* NSString+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Language.m"; sourceTree = "<group>"; };
 		F14E75BC25F8BD890088C6B2 /* NSObject+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Language.h"; sourceTree = "<group>"; };
 		F14E75BD25F8BD890088C6B2 /* NSObject+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Language.m"; sourceTree = "<group>"; };
+		F154DDB9260F2CA0007818F3 /* ABCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABCache.h; sourceTree = "<group>"; };
+		F154DDBA260F2CA0007818F3 /* ABCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABCache.m; sourceTree = "<group>"; };
 		F16CBB1B24ADE90B00CA6C18 /* ABIteration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABIteration.h; sourceTree = "<group>"; };
 		F16CBB1C24ADE90B00CA6C18 /* ABIteration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABIteration.m; sourceTree = "<group>"; };
 		F16CBB3C24AE109000CA6C18 /* ABAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAudio.h; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				F1287E74258462EB00D9574D /* ABRedis.m */,
 				F1CAF7BA258C4B9E00CD4D54 /* ABRouter.h */,
 				F1CAF7BB258C4B9E00CD4D54 /* ABRouter.m */,
+				F154DDB9260F2CA0007818F3 /* ABCache.h */,
+				F154DDBA260F2CA0007818F3 /* ABCache.m */,
 			);
 			path = Core;
 			sourceTree = SOURCE_ROOT;
@@ -540,6 +545,7 @@
 				F11F7C2624BFDD2600DB96B3 /* NSString+WOCrash.m in Sources */,
 				F11F7C2724BFDD2600DB96B3 /* NSMutableDictionary+WOCrash.m in Sources */,
 				F14C35C724751CB70060D435 /* NSObject+ABNet.m in Sources */,
+				F154DDBB260F2CA0007818F3 /* ABCache.m in Sources */,
 				F11682FC24A0B540004DD6B8 /* ABNumber.m in Sources */,
 				F14C35CD24751CB70060D435 /* ABWeakProxy.m in Sources */,
 				F11E91952549180C0015D6A2 /* NSNull+AB.m in Sources */,

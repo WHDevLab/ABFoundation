@@ -109,6 +109,9 @@
 + (NSArray<NSString *> *)pickAllValueWithKey:(NSString *)key arr:(NSArray<NSDictionary *> *)arr {
     NSMutableArray *xx = [[NSMutableArray alloc] init];
     for (NSDictionary *item in arr) {
+        if (item[key] == nil) {
+            continue;
+        }
         [xx addObject:item[key]];
     }
     

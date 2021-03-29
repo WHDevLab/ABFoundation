@@ -12,9 +12,11 @@
 #import "ABNetConfiguration.h"
 #import "ABUITips.h"
 #import <AFNetworking/AFNetworking.h>
+#import "ABCache.h"
 @interface ABNet ()<INetData>
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id<ABNetPluginType>> *patterns;
 @property (nonatomic, strong) ABNetQuene *netQuene;
+@property (nonatomic, strong) ABCache *cache;
 @property (nonatomic, assign) BOOL isReachable;
 @end
 @implementation ABNet
@@ -35,6 +37,7 @@
         self.patterns = [[NSMutableDictionary alloc] init];
         self.plugins = [[NSMutableArray alloc] init];
         self.logs = [[NSMutableArray alloc] init];
+        self.cache = [[ABCache alloc] init];
     }
     return self;
 }
@@ -125,20 +128,29 @@
     if (request.realUri == nil) {
         request.realUri = request.uri;
     }
+    
+    if (request.cachePolicy == ABNetRequestCachePolicyCacheDataElseLoad) {
+        if ([self.cache get:request.identifier]) {
+            [self onNetRequestSuccess:request obj:[self.cache get:request.identifier] isCache:true];
+            return;
+        }
+    }
+    
     [self.netQuene put:request];
-
 }
 
 - (void)onNetRequestSuccess:(ABNetRequest *)req obj:(NSDictionary *)obj isCache:(BOOL)isCache {
+    if (isCache == false && req.cachePolicy == ABNetRequestCachePolicyCacheDataElseLoad) {
+        [self.cache set:obj key:req.identifier];
+    }
     [self.logs addObject:@{@"state":@"success", @"uri":req.uri}];
     id<ABNetPluginType> pl = [self getPL:req];
+    if (pl == nil) {
+        NSLog(@"check real url is correct");
+    }
     if (pl != nil && [pl respondsToSelector:@selector(endSend:)]) {
         [pl endSend:req];
     }
-    
-    [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj endSend:req];
-    }];
     
     if (pl != nil && [pl respondsToSelector:@selector(process:response:)]) {
         NSDictionary *nObj = [pl process:req response:obj];
@@ -146,6 +158,10 @@
     }else{
         [self onSuccess:req obj:obj];
     }
+    
+    [self.plugins enumerateObjectsUsingBlock:^(id<ABNetPluginType>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj endSend:req];
+    }];
 }
 
 - (void)onNetRequestFailure:(ABNetRequest *)req err:(ABNetError *)err {

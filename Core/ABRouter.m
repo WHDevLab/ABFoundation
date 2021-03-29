@@ -29,4 +29,14 @@
     }
 }
 
++ (void)gotoWeb:(NSString *)path {
+    UIViewController *vc = [[NSClassFromString(@"ABUIWebViewController") alloc] init];
+    [ABRouter pushTo:vc props:@{@"path":path}];
+}
+
++ (void)gotoPageWithClassString:(NSString *)string data:(nullable NSDictionary *)data {
+    UIViewController *vc = [[NSClassFromString(string) alloc] init];
+    [ABRouter pushTo:vc props:data];
+}
+
 @end

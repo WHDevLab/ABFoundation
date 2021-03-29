@@ -45,6 +45,9 @@
 - (NSString *)desf:(ABNetRequest *)request error:(ABNetError *)error {
     NSMutableString *string = [[NSMutableString alloc] init];
     [string appendString:@"\n\n******************请求发生错误************************\n"];
+    [string appendString:[NSString stringWithFormat:@"**CurrentTime:%@\n", [ABTime timestamp]]];
+    [string appendString:[NSString stringWithFormat:@"**CurrentTimeFormat:%@\n", [ABTime timestampToTime:[ABTime timestamp] format:@"yyyy-MM-dd hh:mm:ss"]]];
+    [string appendString:[NSString stringWithFormat:@"**CreateTimeFormat:%@\n", [ABTime timestampToTime:request.timestamp format:@"yyyy-MM-dd hh:mm:ss"]]];
     [string appendString:[NSString stringWithFormat:@"**CreateTime:%@\n", request.timestamp]];
     [string appendString:[NSString stringWithFormat:@"**CreateTimeFormat:%@\n", [ABTime timestampToTime:request.timestamp format:@"yyyy-MM-dd hh:mm:ss"]]];
     [string appendString:[NSString stringWithFormat:@"**From:%@\n", [request.target description]]];

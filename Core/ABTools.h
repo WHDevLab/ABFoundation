@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)convertNumberToKW:(NSInteger)kw;
 + (NSInteger)compareVersion2:(NSString *)v1 to:(NSString *)v2;
++ (BOOL)checkAmount:(NSString *)amountString;
 @end
 
 NS_ASSUME_NONNULL_END
