@@ -7,7 +7,23 @@
 //
 
 #import "ABRedis.h"
+
+#define INIT(...) self = super.init; \
+if (!self) return nil; \
+__VA_ARGS__; \
+if (!_dic) return nil; \
+_lock = dispatch_semaphore_create(1); \
+return self;
+
+
+#define LOCK(...) dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER); \
+__VA_ARGS__; \
+dispatch_semaphore_signal(_lock);
+
 @interface ABRedis()
+{
+    dispatch_queue_t _queue;
+}
 @property (nonatomic, strong) NSMutableDictionary *dic;
 @end
 @implementation ABRedis
@@ -26,7 +42,7 @@
     if (self) {
         self.dic = [[NSMutableDictionary alloc] init];
         self.fileName = @"data";
-        
+        _queue = dispatch_queue_create("abredis", DISPATCH_QUEUE_CONCURRENT);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
     }
     return self;
@@ -69,15 +85,24 @@
 }
 
 - (void)set:(nullable id)value key:(NSString *)key {
-    [self.dic setValue:value forKey:key];
+    dispatch_barrier_async(_queue, ^{
+        [self.dic setValue:value forKey:key];
+    });
+    
 }
 
 - (id)get:(NSString *)key {
-    return [self.dic objectForKey:key];
+    __block id o;
+    dispatch_sync(_queue, ^{
+        o = [self.dic objectForKey:key];
+    });
+    return o;
 }
 
 - (BOOL)del:(NSString *)key {
-    [self.dic removeObjectForKey:key];
+    dispatch_barrier_async(_queue, ^{
+        [self.dic removeObjectForKey:key];
+    });
     return true;
 }
 
