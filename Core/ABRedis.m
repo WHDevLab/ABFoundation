@@ -52,6 +52,7 @@ dispatch_semaphore_signal(_lock);
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
     [self save];
+    [self activeExpireCycle];
 }
 
 - (instancetype)initWithName:(NSString *)name {
@@ -92,18 +93,24 @@ dispatch_semaphore_signal(_lock);
     });
 }
 
-- (void)setnx:(id)value key:(NSString *)key {
+- (void)setnx:(NSString *)value key:(NSString *)key {
     if (self.dic[key] == nil) {
         [self set:value key:key];
     }
 }
 
-- (void)setex:(id)value key:(NSString *)key seconds:(int)seconds {
+- (void)setex:(NSString *)value key:(NSString *)key seconds:(int)seconds {
     [self set:value key:key];
     [self setExpire:key when:seconds];
 }
 
-- (id)get:(NSString *)key {
+- (NSString *)getset:(NSString *)value key:(NSString *)key {
+    id vv = [self get:key];
+    [self set:value key:key];
+    return vv;
+}
+
+- (NSString *)get:(NSString *)key {
     __block id o;
     dispatch_sync(_queue, ^{
         if (![self expireIfNeeded:key]) {
@@ -166,6 +173,14 @@ dispatch_semaphore_signal(_lock);
 
 - (void)syncDelete:(NSString *)key {
     [self.expires removeObjectForKey:key];
+}
+
+//timer delete expire keys
+- (void)activeExpireCycle {
+    NSArray *keys = [self.expires allKeys];
+    for (NSString *key in keys) {
+        [self expireIfNeeded:key];
+    }
 }
 
 - (void)dealloc
