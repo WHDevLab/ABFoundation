@@ -25,6 +25,7 @@ dispatch_semaphore_signal(_lock);
     dispatch_queue_t _queue;
 }
 @property (nonatomic, strong) NSMutableDictionary *dic;
+@property (nonatomic, strong) NSMutableDictionary *expires;
 @end
 @implementation ABRedis
 + (ABRedis *)shared {
@@ -41,6 +42,7 @@ dispatch_semaphore_signal(_lock);
     self = [super init];
     if (self) {
         self.dic = [[NSMutableDictionary alloc] init];
+        self.expires = [[NSMutableDictionary alloc] init];
         self.fileName = @"data";
         _queue = dispatch_queue_create("abredis", DISPATCH_QUEUE_CONCURRENT);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
@@ -88,13 +90,25 @@ dispatch_semaphore_signal(_lock);
     dispatch_barrier_async(_queue, ^{
         [self.dic setValue:value forKey:key];
     });
-    
+}
+
+- (void)setnx:(id)value key:(NSString *)key {
+    if (self.dic[key] == nil) {
+        [self set:value key:key];
+    }
+}
+
+- (void)setex:(id)value key:(NSString *)key seconds:(int)seconds {
+    [self set:value key:key];
+    [self setExpire:key when:seconds];
 }
 
 - (id)get:(NSString *)key {
     __block id o;
     dispatch_sync(_queue, ^{
-        o = [self.dic objectForKey:key];
+        if (![self expireIfNeeded:key]) {
+            o = [self.dic objectForKey:key];
+        }
     });
     return o;
 }
@@ -118,6 +132,40 @@ dispatch_semaphore_signal(_lock);
         [[ABRedis shared] set:token key:@"token"];
     }
     
+}
+
+#pragma mark ----------- own -----------
+
+- (BOOL)expireIfNeeded:(NSString *)key {
+    if ([self keyIsExpired:key]) {
+        [self propagateExpire:key];
+        [self syncDelete:key];
+        return true;
+    }
+    return false;
+}
+
+- (BOOL)keyIsExpired:(NSString *)key {
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval record = [self getExpire:key];
+    return [self getExpire:key];
+}
+
+- (void)setExpire:(NSString *)key when:(int)seconds {
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    self.expires[key] = @(now+seconds);
+}
+
+- (NSTimeInterval)getExpire:(NSString *)key {
+    return [self.expires[key] timeInterval];
+}
+
+- (void)propagateExpire:(NSString *)key {
+    
+}
+
+- (void)syncDelete:(NSString *)key {
+    [self.expires removeObjectForKey:key];
 }
 
 - (void)dealloc
