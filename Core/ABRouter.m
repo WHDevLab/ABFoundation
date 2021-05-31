@@ -9,6 +9,7 @@
 #import "ABRouter.h"
 #import "UIApplication+AB.h"
 #import "UIViewController+AB.h"
+#import "ABUINavigationController.h"
 @implementation ABRouter
 + (void)dismiss {
     [[[UIApplication sharedApplication] topViewController] dismissViewControllerAnimated:true completion:nil];
@@ -36,7 +37,20 @@
 
 + (void)gotoPageWithClassString:(NSString *)string data:(nullable NSDictionary *)data {
     UIViewController *vc = [[NSClassFromString(string) alloc] init];
+    vc.title = data[@"title"];
     [ABRouter pushTo:vc props:data];
+}
+
++ (void)doLogin {
+    UIViewController *topVC = [[UIApplication sharedApplication] topViewController];
+    if ([[[topVC class] description] isEqualToString:@"LoginViewController"]) {
+        return;
+    }
+    UIViewController *vc = (UIViewController *)NSClassFromString(@"LoginViewController");
+    ABUINavigationController *nav = [[ABUINavigationController alloc] initWithRootViewController:vc];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
+    [nav setNavigationBarHidden:true];
+    [topVC presentViewController:nav animated:true completion:nil];
 }
 
 @end

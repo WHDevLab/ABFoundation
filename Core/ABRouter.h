@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)pushTo:(nullable UIViewController *)to props:(nullable NSDictionary *)props;
 + (void)gotoWeb:(NSString *)path;
 + (void)gotoPageWithClassString:(NSString *)string data:(nullable NSDictionary *)data;
++ (void)doLogin;
 @end
 
 NS_ASSUME_NONNULL_END

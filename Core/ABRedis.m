@@ -105,7 +105,7 @@ dispatch_semaphore_signal(_lock);
 }
 
 - (NSString *)getset:(NSString *)value key:(NSString *)key {
-    id vv = [self get:key];
+    NSString *vv = [self get:key];
     [self set:value key:key];
     return vv;
 }
@@ -118,6 +118,16 @@ dispatch_semaphore_signal(_lock);
         }
     });
     return o;
+}
+
+- (NSInteger)strlen:(NSString *)key {
+    return [self.dic[key] length];
+}
+
+- (int)append:(NSString *)value key:(NSString *)key {
+    NSString *vv = [self get:key];
+    NSString *nv = [NSString stringWithFormat:@"%@%@", vv, value];
+    [self set:nv key:key];
 }
 
 - (BOOL)del:(NSString *)key {
@@ -138,7 +148,6 @@ dispatch_semaphore_signal(_lock);
     }else{
         [[ABRedis shared] set:token key:@"token"];
     }
-    
 }
 
 #pragma mark ----------- own -----------
@@ -181,6 +190,12 @@ dispatch_semaphore_signal(_lock);
     for (NSString *key in keys) {
         [self expireIfNeeded:key];
     }
+}
+
++(NSDictionary *)auth {
+    NSString *token = [[ABRedis shared] get:@"token"];
+    NSString *uid = [[ABRedis shared] get:@"uid"];
+    return @{@"token":token, @"uid":uid};
 }
 
 - (void)dealloc
